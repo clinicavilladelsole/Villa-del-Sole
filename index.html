@@ -10,177 +10,112 @@
   <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600;800&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --blue: #008cff;
-      --blue-light: rgba(0,140,255,0.08);
-      --blue-border: rgba(0,140,255,0.15);
-      --blue-border-strong: rgba(0,140,255,0.4);
-      --dark: #0b1a2e;
-      --text: #0b1a2e;
-      --muted: #6a8aaa;
-      --faint: #8aaac8;
-      --bg: #f4f8ff;
-      --white: #ffffff;
-      --panel-bg: #f8fbff;
-      --green: #00d68f;
-      --grid-line: rgba(0,140,255,0.045);
+      --blue: #008cff; --blue-light: rgba(0,140,255,0.07); --blue-border: rgba(0,140,255,0.14);
+      --blue-border-strong: rgba(0,140,255,0.4); --dark: #0b1a2e; --muted: #6a8aaa;
+      --faint: #8aaac8; --bg: #f4f8ff; --white: #fff; --green: #00d68f;
     }
-
     html { scroll-behavior: smooth; }
+    body { font-family: 'Space Grotesk', sans-serif; background: var(--bg); color: var(--dark); }
 
-    body {
-      font-family: 'Space Grotesk', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+    /* GRID */
+    .grid-bg { position: absolute; inset: 0; pointer-events: none;
+      background-image: linear-gradient(rgba(0,140,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,140,255,0.04) 1px, transparent 1px);
+      background-size: 36px 36px; }
 
-    /* ── GRID BACKGROUND ── */
-    .grid-bg {
-      position: absolute; inset: 0; pointer-events: none; z-index: 0;
-      background-image:
-        linear-gradient(var(--grid-line) 1px, transparent 1px),
-        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-      background-size: 36px 36px;
-    }
-
-    /* ── NAV ── */
-    .nav {
-      position: sticky; top: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 56px; height: 64px;
-      background: rgba(255,255,255,0.96);
-      border-bottom: 1px solid var(--blue-border);
-      backdrop-filter: blur(10px);
-    }
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center;
+      justify-content: space-between; padding: 0 56px; height: 64px;
+      background: rgba(255,255,255,0.96); border-bottom: 1px solid var(--blue-border);
+      backdrop-filter: blur(10px); }
     .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-    .nav-logo img { height: 38px; width: auto; }
-    .nav-logo-text { display: flex; flex-direction: column; }
-    .nav-logo-name {
-      font-family: 'Oxanium', sans-serif; font-size: 13px; font-weight: 700;
-      color: var(--dark); letter-spacing: 0.07em; text-transform: uppercase;
-    }
-    .nav-logo-sub { font-size: 9px; color: var(--blue); letter-spacing: 0.14em; text-transform: uppercase; }
-    .nav-links { display: flex; gap: 28px; align-items: center; }
-    .nav-links a {
-      font-size: 11px; color: var(--muted); text-decoration: none;
-      letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s;
-    }
+    .nav-logo img { height: 36px; width: auto; }
+    .nav-logo-name { font-family: 'Oxanium', sans-serif; font-size: 12px; font-weight: 700;
+      color: var(--dark); letter-spacing: 0.07em; text-transform: uppercase; display: block; }
+    .nav-logo-sub { font-size: 9px; color: var(--blue); letter-spacing: 0.13em; text-transform: uppercase; display: block; }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a { font-size: 11px; color: var(--muted); text-decoration: none;
+      letter-spacing: 0.07em; text-transform: uppercase; transition: color .2s; }
     .nav-links a:hover { color: var(--blue); }
-    .nav-cta {
-      border: 1px solid var(--blue-border-strong); background: transparent; color: var(--blue);
+    .nav-cta { border: 1px solid var(--blue-border-strong); background: transparent; color: var(--blue);
       padding: 8px 20px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
       font-family: 'Space Grotesk', sans-serif; cursor: pointer; border-radius: 2px;
-      text-decoration: none; transition: background 0.2s, color 0.2s;
-    }
+      text-decoration: none; transition: background .2s, color .2s; }
     .nav-cta:hover { background: var(--blue); color: #fff; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .nav-hamburger span { width: 22px; height: 2px; background: var(--dark); border-radius: 1px; display: block; }
 
-    /* ── HERO ── */
-    .hero-wrap {
-      position: relative; background: var(--white); overflow: hidden;
-    }
-    .hero {
-      position: relative; z-index: 1;
-      display: grid; grid-template-columns: 1fr 420px; gap: 48px;
-      align-items: start; padding: 72px 56px 0; max-width: 1300px; margin: 0 auto;
-    }
-    .hero-glow {
-      position: absolute; width: 600px; height: 600px; border-radius: 50%;
+    /* MOBILE MENU */
+    .mobile-menu { display: none; position: fixed; inset: 0; top: 64px; z-index: 99;
+      background: #fff; padding: 28px 24px; flex-direction: column; gap: 20px;
+      border-top: 1px solid var(--blue-border); }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 15px; color: var(--dark); text-decoration: none;
+      letter-spacing: 0.06em; text-transform: uppercase; padding: 8px 0;
+      border-bottom: 1px solid var(--blue-border); }
+    .mobile-menu .m-cta { background: var(--blue); color: #fff; padding: 14px; text-align: center;
+      border-radius: 2px; border: none; margin-top: 8px; font-weight: 700; }
+
+    /* HERO */
+    .hero-wrap { position: relative; background: var(--white); overflow: hidden; }
+    .hero { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 420px;
+      gap: 48px; align-items: start; padding: 72px 56px 0; max-width: 1300px; margin: 0 auto; }
+    .hero-glow { position: absolute; width: 600px; height: 600px; border-radius: 50%;
       background: radial-gradient(circle, rgba(0,140,255,0.07) 0%, transparent 70%);
-      top: -150px; left: -100px; pointer-events: none; z-index: 0;
-    }
-    .hero-left { position: relative; z-index: 1; }
-
+      top: -150px; left: -100px; pointer-events: none; }
     .hero-tag { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; }
     .hero-tag-line { width: 28px; height: 1px; background: var(--blue); }
     .hero-tag-text { font-size: 10px; color: var(--blue); letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; }
-
-    .hero-h1 {
-      font-family: 'Oxanium', sans-serif; font-size: 58px; font-weight: 800;
-      color: var(--dark); line-height: 1.0; letter-spacing: -0.02em; margin-bottom: 8px;
-    }
-    .hero-h1-outline {
-      display: block; font-weight: 300; font-size: 58px;
-      color: transparent; -webkit-text-stroke: 1.5px rgba(0,140,255,0.3);
-    }
+    h1.hero-h1 { font-family: 'Oxanium', sans-serif; font-size: 56px; font-weight: 800;
+      color: var(--dark); line-height: 1.02; letter-spacing: -0.02em; }
+    .hero-h1-outline { display: block; font-weight: 300; font-size: 56px;
+      color: transparent; -webkit-text-stroke: 1.5px rgba(0,140,255,0.3); }
     .hero-h1-blue { color: var(--blue); }
-
-    .hero-sub {
-      font-size: 15px; color: var(--muted); line-height: 1.75;
-      max-width: 440px; margin: 22px 0 32px; font-weight: 300;
-    }
-    .hero-actions { display: flex; gap: 16px; align-items: center; margin-bottom: 64px; }
-    .btn-primary {
-      background: var(--blue); color: #fff; padding: 13px 30px; border-radius: 2px;
-      font-size: 12px; font-weight: 700; text-decoration: none;
-      letter-spacing: 0.08em; text-transform: uppercase; transition: opacity 0.2s;
-    }
+    .hero-sub { font-size: 15px; color: var(--muted); line-height: 1.75; max-width: 440px;
+      margin: 20px 0 30px; font-weight: 300; }
+    .hero-actions { display: flex; gap: 16px; align-items: center; margin-bottom: 56px; }
+    .btn-primary { background: var(--blue); color: #fff; padding: 13px 30px; border-radius: 2px;
+      font-size: 12px; font-weight: 700; text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: opacity .2s; }
     .btn-primary:hover { opacity: 0.88; }
-    .btn-ghost {
-      font-size: 12px; color: var(--muted); text-decoration: none;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      transition: color 0.2s;
-    }
+    .btn-ghost { font-size: 12px; color: var(--muted); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color .2s; }
     .btn-ghost:hover { color: var(--blue); }
 
-    /* ── BOOKING PANEL ── */
-    .panel {
-      border: 1px solid var(--blue-border); border-radius: 4px;
-      background: var(--panel-bg); position: relative; overflow: hidden;
-      z-index: 1;
-    }
-    .panel::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, transparent, var(--blue), transparent);
-    }
-    .panel-head {
-      padding: 14px 20px; border-bottom: 1px solid var(--blue-border);
-      display: flex; align-items: center; gap: 8px;
-    }
-    .panel-dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; }
-    .panel-title {
-      font-family: 'Oxanium', sans-serif; font-size: 10px; font-weight: 700;
-      letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue);
-    }
-    .panel-badge { margin-left: auto; font-size: 9px; color: var(--faint); letter-spacing: 0.06em; }
+    /* PANEL */
+    .panel { border: 1px solid var(--blue-border); border-radius: 4px; background: #f8fbff;
+      position: relative; overflow: hidden; }
+    .panel::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--blue), transparent); }
+    .panel-head { padding: 14px 20px; border-bottom: 1px solid var(--blue-border);
+      display: flex; align-items: center; gap: 8px; }
+    .pdot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; }
+    .panel-title { font-family: 'Oxanium', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue); }
+    .panel-badge { margin-left: auto; font-size: 9px; color: var(--faint); }
     .panel-body { padding: 18px 20px 20px; }
-    .panel-subtitle {
-      font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--blue); opacity: 0.65; margin-bottom: 14px; font-weight: 500;
-    }
+    .panel-sub { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--blue); opacity: .65; margin-bottom: 14px; font-weight: 500; }
     .doc-list { display: flex; flex-direction: column; gap: 8px; }
-    .doc-btn {
-      display: flex; align-items: center; justify-content: space-between;
+    .doc-btn { display: flex; align-items: center; justify-content: space-between;
       padding: 11px 14px; background: #fff; border: 1px solid var(--blue-border);
-      border-radius: 3px; text-decoration: none; transition: border-color 0.18s, box-shadow 0.18s;
-    }
+      border-radius: 3px; text-decoration: none; transition: border-color .18s, box-shadow .18s; }
     .doc-btn:hover { border-color: var(--blue-border-strong); box-shadow: 0 2px 12px rgba(0,140,255,0.08); }
-    .doc-info { display: flex; flex-direction: column; gap: 2px; }
-    .doc-name { font-size: 13px; color: var(--dark); font-weight: 500; }
-    .doc-spec { font-size: 10px; color: var(--faint); letter-spacing: 0.04em; }
-    .doc-arrow { font-size: 11px; color: var(--blue); letter-spacing: 0.06em; white-space: nowrap; }
-    .panel-status {
-      display: flex; align-items: center; gap: 7px; margin-top: 14px; justify-content: center;
-    }
-    .status-dot { width: 5px; height: 5px; background: var(--green); border-radius: 50%; }
-    .status-text { font-size: 10px; color: var(--faint); letter-spacing: 0.08em; }
+    .doc-name { font-size: 13px; color: var(--dark); font-weight: 500; display: block; }
+    .doc-spec { font-size: 10px; color: var(--faint); display: block; }
+    .doc-arrow { font-size: 11px; color: var(--blue); white-space: nowrap; }
+    .panel-status { display: flex; align-items: center; gap: 7px; margin-top: 14px; justify-content: center; }
+    .sdot { width: 5px; height: 5px; background: var(--green); border-radius: 50%; }
+    .stext { font-size: 10px; color: var(--faint); letter-spacing: 0.08em; }
 
-    /* ── STATS BAR ── */
-    .stats {
-      display: grid; grid-template-columns: repeat(4,1fr);
-      background: var(--white);
-      border-top: 1px solid var(--blue-border);
-      border-bottom: 1px solid var(--blue-border);
-    }
+    /* STATS */
+    .stats { display: grid; grid-template-columns: repeat(4,1fr); background: var(--white);
+      border-top: 1px solid var(--blue-border); border-bottom: 1px solid var(--blue-border); }
     .stat { padding: 20px 32px; border-right: 1px solid var(--blue-border); }
     .stat:last-child { border-right: none; }
-    .stat-n {
-      font-family: 'Oxanium', sans-serif; font-size: 28px; font-weight: 800; color: var(--blue);
-    }
+    .stat-n { font-family: 'Oxanium', sans-serif; font-size: 28px; font-weight: 800; color: var(--blue); }
     .stat-l { font-size: 10px; color: var(--faint); margin-top: 3px; letter-spacing: 0.1em; text-transform: uppercase; }
 
-    /* ── SECTIONS ── */
+    /* SECTIONS */
     section { padding: 64px 56px; }
     section.alt { background: var(--white); }
     .sec-label { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
@@ -188,113 +123,116 @@
     .sec-label::after { content: ''; flex: 1; height: 1px; background: var(--blue-border); }
     .sec-title { font-family: 'Oxanium', sans-serif; font-size: 28px; font-weight: 800; color: var(--dark); margin-bottom: 32px; }
 
-    /* ── SPECIALITÀ ── */
-    .spec-grid {
-      display: grid; grid-template-columns: repeat(4,1fr);
-      gap: 1px; background: var(--blue-border);
-      border: 1px solid var(--blue-border); border-radius: 6px; overflow: hidden;
-    }
-    .spec-cell {
-      background: var(--white); padding: 22px 20px;
-      display: flex; gap: 12px; align-items: flex-start;
-      transition: background 0.15s;
-    }
+    /* IMAGE HERO SECTION */
+    .img-hero { position: relative; width: 100%; height: 320px; overflow: hidden; border-radius: 6px; margin-bottom: 32px; }
+    .img-hero img { width: 100%; height: 100%; object-fit: cover; }
+    .img-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(11,26,46,0.7) 0%, transparent 60%); display: flex; align-items: center; padding: 40px; }
+    .img-hero-text h2 { font-family: 'Oxanium', sans-serif; font-size: 32px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+    .img-hero-text p { font-size: 14px; color: rgba(255,255,255,0.7); max-width: 360px; line-height: 1.6; }
+
+    /* TWO COL */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-bottom: 48px; }
+    .two-col img { width: 100%; height: 260px; object-fit: cover; border-radius: 4px; border: 1px solid var(--blue-border); }
+    .two-col-text h3 { font-family: 'Oxanium', sans-serif; font-size: 20px; font-weight: 800; color: var(--dark); margin-bottom: 12px; }
+    .two-col-text p { font-size: 13px; color: var(--muted); line-height: 1.75; margin-bottom: 10px; font-weight: 300; }
+
+    /* SPEC GRID */
+    .spec-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px;
+      background: var(--blue-border); border: 1px solid var(--blue-border); border-radius: 6px; overflow: hidden; }
+    .spec-cell { background: var(--white); padding: 22px 20px; display: flex; gap: 12px; align-items: flex-start; transition: background .15s; }
     .spec-cell:hover { background: var(--blue-light); }
-    .spec-n {
-      font-family: 'Oxanium', sans-serif; font-size: 22px; font-weight: 800;
-      color: rgba(0,140,255,0.13); flex-shrink: 0; line-height: 1;
-    }
+    .spec-n { font-family: 'Oxanium', sans-serif; font-size: 22px; font-weight: 800; color: rgba(0,140,255,0.13); flex-shrink: 0; line-height: 1; }
     .spec-name { font-size: 13px; font-weight: 500; color: var(--dark); margin-bottom: 4px; }
     .spec-desc { font-size: 11px; color: var(--faint); line-height: 1.55; }
 
-    /* ── CTA STRIP ── */
+    /* STRIP */
     .strip-wrap { padding: 0 56px 64px; }
-    .strip {
-      border-radius: 4px; background: var(--dark); padding: 36px 44px;
-      display: flex; justify-content: space-between; align-items: center; gap: 24px;
-      border-top: 2px solid var(--blue);
-    }
-    .strip-text h3 {
-      font-family: 'Oxanium', sans-serif; font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 5px;
-    }
-    .strip-text p { font-size: 13px; color: rgba(160,200,240,0.45); }
-    .strip-btn {
-      background: var(--blue); color: #fff; border: none; padding: 13px 28px;
-      border-radius: 2px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; cursor: pointer; font-family: 'Space Grotesk', sans-serif;
-      white-space: nowrap; text-decoration: none; transition: opacity 0.2s;
-    }
+    .strip { border-radius: 4px; background: var(--dark); padding: 36px 44px;
+      display: flex; justify-content: space-between; align-items: center; gap: 24px; border-top: 2px solid var(--blue); }
+    .strip h3 { font-family: 'Oxanium', sans-serif; font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 5px; }
+    .strip p { font-size: 13px; color: rgba(160,200,240,0.45); }
+    .strip-btn { background: var(--blue); color: #fff; border: none; padding: 13px 28px;
+      border-radius: 2px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      cursor: pointer; font-family: 'Space Grotesk', sans-serif; white-space: nowrap;
+      text-decoration: none; transition: opacity .2s; }
     .strip-btn:hover { opacity: 0.88; }
 
-    /* ── ÉQUIPE ── */
+    /* EQUIPE */
     .equipe-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
-    .eq-card {
-      border: 1px solid var(--blue-border); border-radius: 3px; padding: 20px;
-      background: var(--white); position: relative; overflow: hidden;
-      transition: box-shadow 0.2s;
-    }
+    .eq-card { border: 1px solid var(--blue-border); border-radius: 3px; padding: 20px;
+      background: var(--white); position: relative; overflow: hidden; transition: box-shadow .2s; }
     .eq-card:hover { box-shadow: 0 4px 20px rgba(0,140,255,0.1); }
-    .eq-card::before {
-      content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%;
-      background: linear-gradient(to bottom, var(--blue), rgba(0,140,255,0.1));
-    }
-    .eq-init {
-      font-family: 'Oxanium', sans-serif; font-size: 12px; font-weight: 800; color: var(--blue);
+    .eq-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%;
+      background: linear-gradient(to bottom, var(--blue), rgba(0,140,255,0.1)); }
+    .eq-init { font-family: 'Oxanium', sans-serif; font-size: 12px; font-weight: 800; color: var(--blue);
       background: var(--blue-light); border: 1px solid var(--blue-border); border-radius: 2px;
-      padding: 5px 9px; display: inline-block; margin-bottom: 10px;
-    }
+      padding: 5px 9px; display: inline-block; margin-bottom: 10px; }
     .eq-name { font-size: 13px; font-weight: 500; color: var(--dark); margin-bottom: 4px; }
     .eq-spec { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); opacity: 0.6; }
-    .eq-link {
-      display: inline-flex; align-items: center; gap: 4px; margin-top: 10px;
-      font-size: 10px; color: var(--blue); text-decoration: none;
-      letter-spacing: 0.06em; text-transform: uppercase; transition: opacity 0.2s;
-    }
-    .eq-link:hover { opacity: 0.7; }
+    .eq-link { display: inline-flex; align-items: center; gap: 4px; margin-top: 10px;
+      font-size: 10px; color: var(--blue); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; }
 
-    /* ── INFO ── */
-    .info-grid {
-      display: grid; grid-template-columns: repeat(4,1fr);
-      gap: 1px; background: var(--blue-border);
-      border: 1px solid var(--blue-border); border-radius: 6px; overflow: hidden;
-    }
+    /* INFO GRID */
+    .info-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px;
+      background: var(--blue-border); border: 1px solid var(--blue-border); border-radius: 6px; overflow: hidden; }
     .info-cell { background: var(--white); padding: 26px 22px; }
     .info-dot-row { display: flex; align-items: center; gap: 7px; margin-bottom: 10px; }
     .info-dot { width: 4px; height: 4px; background: var(--blue); border-radius: 50%; }
-    .info-lbl { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); opacity: 0.65; font-weight: 500; }
+    .info-lbl { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); opacity: .65; font-weight: 500; }
     .info-val { font-size: 13px; color: var(--dark); line-height: 1.8; font-weight: 300; }
     .info-val a { color: var(--blue); text-decoration: none; }
-    .info-val a:hover { text-decoration: underline; }
 
-    /* ── FOOTER ── */
-    footer {
-      background: var(--dark); padding: 32px 56px;
-      display: grid; grid-template-columns: 1fr auto auto; gap: 32px; align-items: center;
-      border-top: 1px solid rgba(0,140,255,0.1);
-    }
+    /* PHOTO GALLERY */
+    .gallery { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 12px; }
+    .gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 4px;
+      border: 1px solid var(--blue-border); transition: opacity .2s; }
+    .gallery img:hover { opacity: 0.88; }
+
+    /* FOOTER */
+    footer { background: var(--dark); padding: 32px 56px;
+      display: grid; grid-template-columns: 1fr auto auto; gap: 32px; align-items: center; }
     .foot-brand { font-family: 'Oxanium', sans-serif; font-size: 13px; font-weight: 800; color: #fff; margin-bottom: 4px; }
     .foot-sub { font-size: 10px; color: rgba(160,200,240,0.3); letter-spacing: 0.04em; }
     .foot-links { display: flex; gap: 20px; flex-wrap: wrap; }
-    .foot-links a { font-size: 10px; color: rgba(0,140,255,0.45); text-decoration: none; letter-spacing: 0.07em; text-transform: uppercase; transition: color 0.2s; }
+    .foot-links a { font-size: 10px; color: rgba(0,140,255,0.45); text-decoration: none; letter-spacing: 0.07em; text-transform: uppercase; transition: color .2s; }
     .foot-links a:hover { color: var(--blue); }
-    .accred {
-      border: 1px solid rgba(0,214,143,0.28); border-radius: 2px;
-      padding: 5px 12px; font-size: 10px; color: rgba(0,214,143,0.6);
-      letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap;
-    }
+    .accred { border: 1px solid rgba(0,214,143,0.28); border-radius: 2px; padding: 5px 12px;
+      font-size: 10px; color: rgba(0,214,143,0.6); letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .hero { grid-template-columns: 1fr; padding: 48px 32px 0; }
+      .equipe-grid { grid-template-columns: repeat(2,1fr); }
+      .spec-grid { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 768px) {
       .nav { padding: 0 20px; }
       .nav-links { display: none; }
-      .hero { grid-template-columns: 1fr; padding: 40px 20px 0; }
-      .hero-h1, .hero-h1-outline { font-size: 38px; }
+      .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .hero { padding: 36px 20px 0; gap: 28px; }
+      h1.hero-h1, .hero-h1-outline { font-size: 36px; }
+      .hero-sub { font-size: 13px; }
       .stats { grid-template-columns: repeat(2,1fr); }
+      .stat { padding: 16px 20px; }
       section { padding: 40px 20px; }
-      .spec-grid, .equipe-grid, .info-grid { grid-template-columns: repeat(2,1fr); }
+      .spec-grid { grid-template-columns: 1fr 1fr; }
+      .equipe-grid { grid-template-columns: 1fr 1fr; }
+      .info-grid { grid-template-columns: 1fr 1fr; }
+      .two-col { grid-template-columns: 1fr; }
+      .gallery { grid-template-columns: 1fr 1fr; }
       .strip-wrap { padding: 0 20px 40px; }
-      .strip { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .strip { flex-direction: column; align-items: flex-start; gap: 16px; padding: 24px 22px; }
       footer { grid-template-columns: 1fr; padding: 24px 20px; gap: 16px; }
+      .img-hero { height: 200px; }
+      .img-hero-text h2 { font-size: 22px; }
+    }
+    @media (max-width: 480px) {
+      .spec-grid { grid-template-columns: 1fr; }
+      .equipe-grid { grid-template-columns: 1fr; }
+      .info-grid { grid-template-columns: 1fr; }
+      .gallery { grid-template-columns: 1fr; }
+      h1.hero-h1, .hero-h1-outline { font-size: 30px; }
     }
   </style>
 </head>
@@ -304,27 +242,40 @@
   <nav class="nav">
     <a class="nav-logo" href="#">
       <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,fit=crop/J4tGMURsXwwCH1vY/logo_white_t-AdwDt7F54uNAMIOT.png" alt="Villa del Sole"/>
-      <div class="nav-logo-text">
+      <div>
         <span class="nav-logo-name">Villa del Sole</span>
         <span class="nav-logo-sub">Casa di Cura · Cosenza</span>
       </div>
     </a>
     <div class="nav-links">
+      <a href="#clinica">La clinica</a>
       <a href="#specialita">Specialità</a>
       <a href="#equipe">Équipe</a>
+      <a href="#struttura">La struttura</a>
       <a href="#info">Informazioni</a>
-      <a href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/la-casa-di-cura" target="_blank">La clinica</a>
-      <a href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/informazioni-paziente" target="_blank">Pazienti</a>
     </div>
-    <a class="nav-cta" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/prenotazione-online-la-tua-visita-specialistica" target="_blank">Prenota →</a>
+    <a class="nav-cta" href="#prenota">Prenota →</a>
+    <div class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </div>
   </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#clinica" onclick="document.getElementById('mobileMenu').classList.remove('open')">La clinica</a>
+    <a href="#specialita" onclick="document.getElementById('mobileMenu').classList.remove('open')">Specialità</a>
+    <a href="#equipe" onclick="document.getElementById('mobileMenu').classList.remove('open')">Équipe</a>
+    <a href="#struttura" onclick="document.getElementById('mobileMenu').classList.remove('open')">La struttura</a>
+    <a href="#info" onclick="document.getElementById('mobileMenu').classList.remove('open')">Informazioni</a>
+    <a href="#prenota" class="m-cta" onclick="document.getElementById('mobileMenu').classList.remove('open')">Prenota online →</a>
+  </div>
 
   <!-- HERO -->
   <div class="hero-wrap">
     <div class="grid-bg"></div>
     <div class="hero">
       <div class="hero-glow"></div>
-      <div class="hero-left">
+      <div style="position:relative;z-index:1;">
         <div class="hero-tag">
           <div class="hero-tag-line"></div>
           <span class="hero-tag-text">Struttura sanitaria privata · Cosenza, Calabria</span>
@@ -334,65 +285,64 @@
           <span class="hero-h1-outline">avanzata</span>
           al tuo <span class="hero-h1-blue">fianco.</span>
         </h1>
-        <p class="hero-sub">Cardiologia, chirurgia specialistica e diagnostica di eccellenza in una struttura moderna e accreditata SSN. Prenota online la tua visita — conferma immediata.</p>
+        <p class="hero-sub">Cardiologia, chirurgia specialistica e diagnostica di eccellenza in una struttura moderna e accreditata SSN, al servizio dei pazienti dal 1972.</p>
         <div class="hero-actions">
-          <a class="btn-primary" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/prenotazione-online-la-tua-visita-specialistica" target="_blank">Prenota una visita</a>
-          <a class="btn-ghost" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/la-casa-di-cura" target="_blank">Scopri la struttura →</a>
+          <a class="btn-primary" href="#prenota">Prenota una visita</a>
+          <a class="btn-ghost" href="#clinica">Scopri la struttura →</a>
         </div>
       </div>
 
-      <!-- PANEL -->
-      <div class="panel">
+      <!-- BOOKING PANEL -->
+      <div class="panel" id="prenota" style="position:relative;z-index:1;">
         <div class="panel-head">
-          <div class="panel-dot"></div>
+          <div class="pdot"></div>
           <span class="panel-title">// Prenota online</span>
           <span class="panel-badge">Powered by cal.com</span>
         </div>
         <div class="panel-body">
-          <div class="panel-subtitle">Seleziona il tuo specialista</div>
+          <div class="panel-sub">Seleziona il tuo specialista</div>
           <div class="doc-list">
             <a class="doc-btn" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-dr-scillone" target="_blank">
-              <div class="doc-info"><span class="doc-name">Dr. Antonio Scillone</span><span class="doc-spec">Cardiologia</span></div>
+              <div><span class="doc-name">Dr. Antonio Scillone</span><span class="doc-spec">Cardiologia</span></div>
               <span class="doc-arrow">Prenota →</span>
             </a>
             <a class="doc-btn" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-dr-canonaco" target="_blank">
-              <div class="doc-info"><span class="doc-name">Dr. Massimo Canonaco</span><span class="doc-spec">Chirurgia Proctologica</span></div>
+              <div><span class="doc-name">Dr. Massimo Canonaco</span><span class="doc-spec">Chirurgia Proctologica</span></div>
               <span class="doc-arrow">Prenota →</span>
             </a>
             <a class="doc-btn" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-drssa-scillone-maddalena" target="_blank">
-              <div class="doc-info"><span class="doc-name">Dr.ssa Maddalena Scillone</span><span class="doc-spec">Reumatologia</span></div>
+              <div><span class="doc-name">Dr.ssa Maddalena Scillone</span><span class="doc-spec">Reumatologia</span></div>
               <span class="doc-arrow">Prenota →</span>
             </a>
             <a class="doc-btn" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-drabonante-sergio" target="_blank">
-              <div class="doc-info"><span class="doc-name">Dr. Sergio Abonante</span><span class="doc-spec">Chirurgia Senologica</span></div>
+              <div><span class="doc-name">Dr. Sergio Abonante</span><span class="doc-spec">Chirurgia Senologica</span></div>
               <span class="doc-arrow">Prenota →</span>
             </a>
             <a class="doc-btn" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-profberti-piero" target="_blank">
-              <div class="doc-info"><span class="doc-name">Prof. Piero Berti</span><span class="doc-spec">Chirurgia Endocrina</span></div>
+              <div><span class="doc-name">Prof. Piero Berti</span><span class="doc-spec">Chirurgia Endocrina</span></div>
               <span class="doc-arrow">Prenota →</span>
             </a>
             <a class="doc-btn" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-drssa-scillone-teresa" target="_blank">
-              <div class="doc-info"><span class="doc-name">Dr.ssa Teresa Scillone</span><span class="doc-spec">Ecografia Internistica</span></div>
+              <div><span class="doc-name">Dr.ssa Teresa Scillone</span><span class="doc-spec">Ecografia Internistica</span></div>
               <span class="doc-arrow">Prenota →</span>
             </a>
             <a class="doc-btn" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-dr-miraglia-pietro" target="_blank">
-              <div class="doc-info"><span class="doc-name">Dr. Pietro Miraglia</span><span class="doc-spec">Diagnostica Vascolare</span></div>
+              <div><span class="doc-name">Dr. Pietro Miraglia</span><span class="doc-spec">Diagnostica Vascolare</span></div>
               <span class="doc-arrow">Prenota →</span>
             </a>
             <a class="doc-btn" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-chirurgia-generale" target="_blank">
-              <div class="doc-info"><span class="doc-name">Dr. Pietro Ajello</span><span class="doc-spec">Chirurgia Generale</span></div>
+              <div><span class="doc-name">Dr. Pietro Ajello</span><span class="doc-spec">Chirurgia Generale</span></div>
               <span class="doc-arrow">Prenota →</span>
             </a>
           </div>
           <div class="panel-status">
-            <div class="status-dot"></div>
-            <span class="status-text">Sistema attivo · Conferma immediata</span>
+            <div class="sdot"></div>
+            <span class="stext">Sistema attivo · Conferma immediata</span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- STATS -->
     <div class="stats">
       <div class="stat"><div class="stat-n">30+</div><div class="stat-l">Anni di attività</div></div>
       <div class="stat"><div class="stat-n">8</div><div class="stat-l">Specialisti</div></div>
@@ -400,6 +350,38 @@
       <div class="stat"><div class="stat-n">SSN</div><div class="stat-l">Struttura accreditata</div></div>
     </div>
   </div>
+
+  <!-- LA CLINICA -->
+  <section id="clinica" class="alt">
+    <div class="sec-label"><span>La casa di cura</span></div>
+    <div class="sec-title">Villa del Sole</div>
+    <div class="img-hero">
+      <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,h=600,fit=crop/J4tGMURsXwwCH1vY/segretaria-bMlLUecU2dzlvmsD.jpg" alt="Segreteria Villa del Sole"/>
+      <div class="img-hero-overlay">
+        <div class="img-hero-text">
+          <h2>Eccellenza e cura dal 1972</h2>
+          <p>Una struttura moderna al servizio della salute dei pazienti di Cosenza e della Calabria.</p>
+        </div>
+      </div>
+    </div>
+    <div class="two-col">
+      <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=512,fit=crop/J4tGMURsXwwCH1vY/segretaria-bMlLUecU2dzlvmsD.jpg" alt="Accettazione"/>
+      <div class="two-col-text">
+        <h3>La struttura</h3>
+        <p>La Casa di Cura Villa del Sole eroga, in regime di ricovero ordinario, i servizi e le prestazioni di diagnosi e cura in Chirurgia e Riabilitazione.</p>
+        <p>Dispone di <strong>44 posti letto</strong> per la Chirurgia Generale (40 ordinari + 4 Day Hospital) e <strong>30 posti letto</strong> di Riabilitazione Cardiorespiratoria.</p>
+        <p>Attualmente la clinica dispone di <strong>32 camere di degenza</strong>, tutte con ampie finestre, servizi igienici indipendenti e apparecchi telefonici.</p>
+      </div>
+    </div>
+    <div class="two-col" style="direction:rtl;">
+      <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=512,fit=crop/J4tGMURsXwwCH1vY/prestazioni-1-GptoiXZ1WTsa2aSq.png" alt="Prestazioni" style="direction:ltr;"/>
+      <div class="two-col-text" style="direction:ltr;">
+        <h3>La nostra missione</h3>
+        <p>Il fine istituzionale della Casa di Cura Villa del Sole è quello di erogare i servizi e le prestazioni di diagnosi e cura garantendo il massimo della sicurezza, le cure della più alta qualità e la disponibilità dei mezzi necessari al medico responsabile.</p>
+        <p>Garantiamo un ambiente umano e accogliente, al fine di evitare qualsiasi motivo di spersonalizzazione dovuto al ricovero e al trattamento.</p>
+      </div>
+    </div>
+  </section>
 
   <!-- SPECIALITÀ -->
   <section id="specialita">
@@ -420,11 +402,11 @@
   <!-- CTA STRIP -->
   <div class="strip-wrap">
     <div class="strip">
-      <div class="strip-text">
+      <div>
         <h3>Hai bisogno di una visita urgente?</h3>
         <p>Disponibilità in tempi brevi · Prenota direttamente online con conferma immediata</p>
       </div>
-      <a class="strip-btn" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/prenotazione-online-la-tua-visita-specialistica" target="_blank">Prenota adesso →</a>
+      <a class="strip-btn" href="#prenota">Prenota adesso →</a>
     </div>
   </div>
 
@@ -444,30 +426,41 @@
     </div>
   </section>
 
+  <!-- LA STRUTTURA FOTO -->
+  <section id="struttura">
+    <div class="sec-label"><span>La struttura</span></div>
+    <div class="sec-title">Ambienti e servizi</div>
+    <div class="gallery">
+      <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=512,fit=crop/J4tGMURsXwwCH1vY/accettazione-3-cNUrjHkhtGyPcgli.jpg" alt="Accettazione"/>
+      <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=512,fit=crop/J4tGMURsXwwCH1vY/segretaria-bMlLUecU2dzlvmsD.jpg" alt="Segreteria"/>
+      <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=512,fit=crop/J4tGMURsXwwCH1vY/prestazioni-1-GptoiXZ1WTsa2aSq.png" alt="Prestazioni"/>
+    </div>
+  </section>
+
   <!-- INFO -->
-  <section id="info">
+  <section id="info" class="alt">
     <div class="sec-label"><span>Accesso e logistica</span></div>
     <div class="sec-title">Informazioni pratiche</div>
     <div class="info-grid">
       <div class="info-cell">
         <div class="info-dot-row"><div class="info-dot"></div><div class="info-lbl">Orari accettazione</div></div>
-        <div class="info-val">Lunedì – Venerdì<br>08:00 – 13:30<br>15:00 – 19:00</div>
+        <div class="info-val">Lunedì – Venerdì<br>08:00 – 13:30<br>15:00 – 19:00<br><br>Sabato<br>09:30 – 13:00</div>
       </div>
       <div class="info-cell">
         <div class="info-dot-row"><div class="info-dot"></div><div class="info-lbl">Sede</div></div>
-        <div class="info-val">Via E. Galli, 1-9<br>Rione San Vito<br>87100 Cosenza (CS)</div>
+        <div class="info-val">Via E. Galli, 1-9<br>Rione San Vito<br>87100 Cosenza (CS)<br><br>Uscita A3 Cosenza Sud</div>
       </div>
       <div class="info-cell">
         <div class="info-dot-row"><div class="info-dot"></div><div class="info-lbl">Contatti</div></div>
         <div class="info-val">
           Tel. <a href="tel:+390984034026">0984 34026</a><br>
-          Fax 0984 31548<br>
-          <a href="mailto:villadelsole@casadicuravilladelsole.it">villadelsole@...</a>
+          Fax 0984 31548<br><br>
+          <a href="mailto:villadelsole@casadicuravilladelsole.it">villadelsole@<br>casadicuravilladelsole.it</a>
         </div>
       </div>
       <div class="info-cell">
         <div class="info-dot-row"><div class="info-dot"></div><div class="info-lbl">Pagamenti</div></div>
-        <div class="info-val">Contanti · Carta<br>Convenzioni assicurative<br>Ricoveri SSN</div>
+        <div class="info-val">Contanti · Carta<br>Convenzioni assicurative<br>Ricoveri SSN<br><br>P.IVA 00963660782</div>
       </div>
     </div>
   </section>
@@ -476,13 +469,13 @@
   <footer>
     <div>
       <div class="foot-brand">Casa di Cura Villa del Sole S.r.l.</div>
-      <div class="foot-sub">Via E. Galli 1-9 · 87100 Cosenza · P.IVA 00963660782</div>
+      <div class="foot-sub">Via E. Galli 1-9 · 87100 Cosenza · P.IVA 00963660782 · Tel. 0984 34026</div>
     </div>
     <div class="foot-links">
       <a href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/privacy-policy" target="_blank">Privacy Policy</a>
       <a href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/cookie-policy" target="_blank">Cookie Policy</a>
       <a href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/il-paziente#reclami" target="_blank">Reclami</a>
-      <a href="tel:+390984034026">Contatti</a>
+      <a href="mailto:villadelsole@casadicuravilladelsole.it">Contatti</a>
     </div>
     <div class="accred">Accreditata SSN</div>
   </footer>
