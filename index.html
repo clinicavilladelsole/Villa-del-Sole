@@ -7,239 +7,264 @@
 <meta name="description" content="Casa di Cura Villa del Sole Cosenza – Cardiologia, Chirurgia, Diagnostica. Prenota online la tua visita specialistica. Struttura accreditata SSN."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600;800&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Bricolage+Grotesque:wght@300;400;500;800&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --blue:#008cff;--blue-l:rgba(0,140,255,0.07);--blue-b:rgba(0,140,255,0.14);
-  --blue-bs:rgba(0,140,255,0.4);--dark:#0b1a2e;--muted:#6a8aaa;--faint:#8aaac8;
-  --bg:#f4f8ff;--white:#fff;--green:#00d68f;
+  --blue:#3b7dff;--blue-l:#eef3ff;--blue-b:#bfd0ff;
+  --dark:#0a0e1a;--text:#111827;--muted:#6b7280;--faint:#9ca3af;
+  --bg:#f6f7fb;--white:#fff;--green:#22c55e;--border:#eef0f6;
 }
 html{scroll-behavior:smooth}
-body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--dark)}
-
-.grid-bg{position:absolute;inset:0;pointer-events:none;
-  background-image:linear-gradient(rgba(0,140,255,0.04) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(0,140,255,0.04) 1px,transparent 1px);
-  background-size:36px 36px}
+body{font-family:'Bricolage Grotesque',sans-serif;background:#fff;color:var(--dark)}
 
 /* NAV */
 .nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;
-  justify-content:space-between;padding:0 52px;height:64px;
-  background:rgba(255,255,255,0.97);border-bottom:1px solid var(--blue-b);
+  justify-content:space-between;padding:0 56px;height:68px;
+  background:rgba(255,255,255,0.97);border-bottom:1px solid var(--border);
   backdrop-filter:blur(12px)}
 .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
-.nav-logo img{height:36px;width:auto}
-.nav-logo-name{font-family:'Oxanium',sans-serif;font-size:12px;font-weight:700;
-  color:var(--dark);letter-spacing:.07em;text-transform:uppercase;display:block}
-.nav-logo-sub{font-size:9px;color:var(--blue);letter-spacing:.13em;text-transform:uppercase;display:block}
-.nav-links{display:flex;gap:24px;align-items:center}
-.nav-links a{font-size:11px;color:var(--muted);text-decoration:none;
-  letter-spacing:.07em;text-transform:uppercase;transition:color .2s}
+.nav-logo img{height:34px;width:auto;filter:brightness(0)}
+.nav-logo-n{font-family:'Syne',sans-serif;font-size:13px;font-weight:800;
+  color:var(--dark);letter-spacing:.04em;text-transform:uppercase;display:block}
+.nav-logo-s{font-size:9px;color:var(--blue);letter-spacing:.14em;text-transform:uppercase;display:block;margin-top:1px}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:.03em;transition:color .2s}
 .nav-links a:hover{color:var(--blue)}
-.nav-cta{border:1px solid var(--blue-bs);background:transparent;color:var(--blue);
-  padding:8px 20px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
-  font-family:'Space Grotesk',sans-serif;cursor:pointer;border-radius:2px;
-  text-decoration:none;transition:background .2s,color .2s}
-.nav-cta:hover{background:var(--blue);color:#fff}
-.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
-.nav-hamburger span{width:22px;height:2px;background:var(--dark);border-radius:1px;display:block}
+.nav-cta{background:var(--dark);color:#fff;padding:10px 26px;border-radius:6px;
+  font-size:12px;font-weight:500;font-family:'Bricolage Grotesque',sans-serif;
+  border:none;cursor:pointer;letter-spacing:.04em;text-decoration:none;transition:opacity .2s}
+.nav-cta:hover{opacity:.85}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{width:22px;height:2px;background:var(--dark);border-radius:1px;display:block}
 
-.mobile-menu{display:none;position:fixed;inset:0;top:64px;z-index:99;
-  background:#fff;padding:28px 24px;flex-direction:column;gap:0;
-  border-top:1px solid var(--blue-b);overflow-y:auto}
+/* MOBILE MENU */
+.mobile-menu{display:none;position:fixed;inset:0;top:68px;z-index:99;
+  background:#fff;padding:32px 24px;flex-direction:column;
+  border-top:1px solid var(--border);overflow-y:auto}
 .mobile-menu.open{display:flex}
-.mobile-menu a{font-size:15px;color:var(--dark);text-decoration:none;
-  letter-spacing:.06em;text-transform:uppercase;padding:14px 0;
-  border-bottom:1px solid var(--blue-b);display:block}
-.mobile-menu .m-cta{background:var(--blue);color:#fff;padding:14px;text-align:center;
-  border-radius:2px;border:none;margin-top:16px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.mobile-menu a{font-size:16px;color:var(--dark);text-decoration:none;
+  padding:14px 0;border-bottom:1px solid var(--border);display:block;
+  letter-spacing:.03em}
+.mobile-menu .m-cta{background:var(--blue);color:#fff;padding:16px;text-align:center;
+  border-radius:8px;margin-top:20px;font-weight:700;letter-spacing:.04em}
 
 /* HERO SPLIT */
-.hero{display:grid;grid-template-columns:1fr 1fr;min-height:580px;position:relative}
-.hero-left{background:var(--white);position:relative;overflow:hidden;
-  display:flex;align-items:center;padding:72px 56px}
-.hero-glow{position:absolute;width:500px;height:500px;border-radius:50%;
-  background:radial-gradient(circle,rgba(0,140,255,0.07) 0%,transparent 70%);
-  top:-100px;left:-80px;pointer-events:none}
-.hero-content{position:relative;z-index:1;max-width:520px}
-.hero-tag{display:flex;align-items:center;gap:10px;margin-bottom:22px}
-.hero-tag-line{width:28px;height:1px;background:var(--blue)}
-.hero-tag-text{font-size:10px;color:var(--blue);letter-spacing:.2em;text-transform:uppercase;font-weight:500}
-h1.hero-h1{font-family:'Oxanium',sans-serif;font-size:52px;font-weight:800;
-  color:var(--dark);line-height:1.02;letter-spacing:-.02em}
-.h1-outline{display:block;font-weight:300;font-size:52px;
-  color:transparent;-webkit-text-stroke:1.5px rgba(0,140,255,0.3)}
-.h1-blue{color:var(--blue)}
-.hero-sub{font-size:15px;color:var(--muted);line-height:1.75;margin:20px 0 30px;font-weight:300}
-.hero-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
-.btn-primary{background:var(--blue);color:#fff;padding:13px 28px;border-radius:2px;
-  font-size:12px;font-weight:700;text-decoration:none;letter-spacing:.08em;text-transform:uppercase;transition:opacity .2s}
-.btn-primary:hover{opacity:.88}
-.btn-ghost{font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
-.btn-ghost:hover{color:var(--blue)}
-.hero-right{position:relative;overflow:hidden}
-.hero-right img{width:100%;height:100%;object-fit:cover;display:block}
-.hero-right-overlay{position:absolute;inset:0;
-  background:linear-gradient(to right,rgba(11,26,46,0.2) 0%,transparent 40%)}
-.hero-badge{position:absolute;bottom:28px;left:28px;
-  background:rgba(255,255,255,0.94);backdrop-filter:blur(8px);
-  border:1px solid var(--blue-b);border-radius:4px;padding:14px 18px}
-.hero-badge-n{font-family:'Oxanium',sans-serif;font-size:26px;font-weight:800;color:var(--blue)}
-.hero-badge-l{font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:620px}
+.hero-left{background:var(--dark);padding:80px 56px;display:flex;
+  flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.hero-geo1{position:absolute;width:380px;height:380px;border-radius:50%;
+  border:1px solid rgba(59,125,255,0.18);top:-100px;left:-100px;pointer-events:none}
+.hero-geo2{position:absolute;width:240px;height:240px;border-radius:50%;
+  border:1px solid rgba(59,125,255,0.1);top:-40px;left:-40px;pointer-events:none}
+.hero-geo3{position:absolute;width:180px;height:2px;
+  background:linear-gradient(to right,var(--blue),transparent);
+  bottom:140px;left:0;pointer-events:none}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;
+  border:1px solid rgba(255,255,255,0.12);border-radius:4px;
+  padding:6px 14px;width:fit-content;margin-bottom:36px}
+.hero-tag-dot{width:5px;height:5px;background:var(--blue);border-radius:50%}
+.hero-tag span{font-size:10px;color:rgba(255,255,255,0.5);letter-spacing:.16em;text-transform:uppercase}
+h1.hero-h1{font-family:'Syne',sans-serif;font-size:58px;font-weight:800;
+  color:#fff;line-height:.96;letter-spacing:-.03em;position:relative;z-index:1}
+h1.hero-h1 .accent{color:var(--blue);display:block}
+h1.hero-h1 .outline{color:transparent;-webkit-text-stroke:1px rgba(255,255,255,0.22);display:block}
+.hero-sub{font-size:15px;color:rgba(255,255,255,0.42);line-height:1.7;
+  max-width:380px;margin-top:24px;font-weight:300;position:relative;z-index:1}
+.hero-btns{display:flex;gap:12px;margin-top:40px;flex-wrap:wrap;position:relative;z-index:1}
+.btn-w{background:#fff;color:var(--dark);padding:13px 30px;border-radius:6px;
+  font-size:12px;font-weight:700;text-decoration:none;letter-spacing:.05em;text-transform:uppercase;transition:opacity .2s}
+.btn-w:hover{opacity:.88}
+.btn-ghost{border:1px solid rgba(255,255,255,0.18);color:rgba(255,255,255,0.55);
+  padding:12px 24px;border-radius:6px;font-size:12px;text-decoration:none;
+  letter-spacing:.05em;text-transform:uppercase;transition:border-color .2s}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.4)}
+.hero-bottom{border-top:1px solid rgba(255,255,255,0.07);padding-top:28px;
+  display:flex;gap:48px;position:relative;z-index:1}
+.hero-stat-n{font-family:'Syne',sans-serif;font-size:30px;font-weight:800;color:#fff}
+.hero-stat-l{font-size:10px;color:rgba(255,255,255,0.28);letter-spacing:.1em;text-transform:uppercase;margin-top:3px}
 
-/* STATS */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);background:var(--white);
-  border-top:1px solid var(--blue-b);border-bottom:1px solid var(--blue-b)}
-.stat{padding:20px 32px;border-right:1px solid var(--blue-b)}
-.stat:last-child{border-right:none}
-.stat-n{font-family:'Oxanium',sans-serif;font-size:28px;font-weight:800;color:var(--blue)}
-.stat-l{font-size:10px;color:var(--faint);margin-top:3px;letter-spacing:.1em;text-transform:uppercase}
+/* HERO RIGHT */
+.hero-right{position:relative;overflow:hidden}
+.hero-right img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.85)}
+.hero-right-ov{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,14,26,0.35) 0%,transparent 55%)}
+.hero-badge{position:absolute;top:36px;right:36px;
+  background:rgba(10,14,26,0.88);backdrop-filter:blur(14px);
+  border:1px solid rgba(59,125,255,0.28);border-radius:12px;padding:18px 22px;text-align:right}
+.hero-badge-n{font-family:'Syne',sans-serif;font-size:34px;font-weight:800;color:#fff;line-height:1}
+.hero-badge-l{font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:.14em;text-transform:uppercase;margin-top:4px}
+.hero-badge-accent{width:36px;height:2px;background:var(--blue);margin-left:auto;margin-top:10px}
+
+/* MARQUEE */
+.band{background:var(--blue);padding:15px 0;overflow:hidden;white-space:nowrap}
+.band-inner{display:inline-flex;gap:48px;animation:marquee 24s linear infinite}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.band-item{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;
+  color:#fff;letter-spacing:.14em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:16px;white-space:nowrap}
+.band-item::after{content:'✦';font-size:8px;opacity:.5}
 
 /* SECTIONS */
-section{padding:72px 56px}
-section.alt{background:var(--white)}
-.sec-label{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-.sec-label span{font-size:10px;color:var(--blue);letter-spacing:.2em;text-transform:uppercase;font-weight:500;white-space:nowrap}
-.sec-label::after{content:'';flex:1;height:1px;background:var(--blue-b)}
-.sec-title{font-family:'Oxanium',sans-serif;font-size:28px;font-weight:800;color:var(--dark);margin-bottom:40px}
+section{padding:96px 56px}
+section.alt{background:var(--bg)}
+.eyebrow{font-size:10px;color:var(--blue);letter-spacing:.2em;text-transform:uppercase;
+  font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.eyebrow::before{content:'';width:20px;height:1px;background:var(--blue)}
+h2.sec-title{font-family:'Syne',sans-serif;font-size:42px;font-weight:800;
+  color:var(--dark);letter-spacing:-.03em;line-height:1.0;margin-bottom:56px}
+h2.sec-title em{font-style:normal;color:var(--blue)}
 
 /* CLINICA BLOCKS */
-.clinica-block{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:72px}
-.clinica-block:last-child{margin-bottom:0}
-.clinica-block.rev{direction:rtl}
-.clinica-block.rev>*{direction:ltr}
-.clinica-img{width:100%;height:340px;object-fit:cover;border-radius:6px;
-  border:1px solid var(--blue-b);display:block}
-.clinica-text h3{font-family:'Oxanium',sans-serif;font-size:22px;font-weight:800;
-  color:var(--dark);margin-bottom:14px}
-.clinica-text p{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:12px;font-weight:300}
-.clinica-text strong{color:var(--dark);font-weight:500}
-.clinica-text ul{margin:14px 0 0;list-style:none;display:flex;flex-direction:column;gap:9px}
-.clinica-text li{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:9px;font-weight:300}
-.clinica-text li::before{content:'';width:4px;height:4px;background:var(--blue);border-radius:50%;flex-shrink:0}
+.block{display:grid;grid-template-columns:1fr 1fr;gap:0;
+  border:1px solid var(--border);border-radius:20px;overflow:hidden;
+  margin-bottom:20px;background:#fff}
+.block:last-child{margin-bottom:0}
+.block-img-wrap{position:relative;overflow:hidden;min-height:380px}
+.block-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.block-img-wrap:hover img{transform:scale(1.04)}
+.block-label{position:absolute;bottom:24px;left:24px;
+  background:rgba(10,14,26,0.88);backdrop-filter:blur(8px);
+  border-radius:8px;padding:9px 16px}
+.block-label span{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;
+  color:#fff;letter-spacing:.12em;text-transform:uppercase}
+.block-content{padding:52px 48px;display:flex;flex-direction:column;justify-content:center}
+.block-num{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;
+  color:var(--blue);letter-spacing:.18em;text-transform:uppercase;margin-bottom:18px}
+h3.block-h3{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;
+  color:var(--dark);letter-spacing:-.02em;line-height:1.12;margin-bottom:16px}
+.block-p{font-size:14px;color:var(--muted);line-height:1.78;margin-bottom:24px;font-weight:300}
+.block-tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:11px;color:var(--blue);background:var(--blue-l);
+  padding:5px 12px;border-radius:6px;font-weight:500;letter-spacing:.03em}
 
 /* SPEC GRID */
-.spec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
-  background:var(--blue-b);border:1px solid var(--blue-b);border-radius:6px;overflow:hidden}
-.spec-cell{background:var(--white);padding:22px 20px;display:flex;gap:12px;align-items:flex-start;transition:background .15s}
-.spec-cell:hover{background:var(--blue-l)}
-.spec-n{font-family:'Oxanium',sans-serif;font-size:22px;font-weight:800;color:rgba(0,140,255,0.13);flex-shrink:0;line-height:1}
-.spec-name{font-size:13px;font-weight:500;color:var(--dark);margin-bottom:4px}
-.spec-desc{font-size:11px;color:var(--faint);line-height:1.55}
+.spec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;
+  background:#e5e7eb;border-radius:18px;overflow:hidden}
+.spec-cell{background:#fff;padding:30px 24px;transition:background .15s,transform .15s}
+.spec-cell:hover{background:#f0f5ff}
+.spec-n{font-family:'Syne',sans-serif;font-size:36px;font-weight:800;
+  color:#eef0f6;line-height:1;margin-bottom:18px}
+.spec-name{font-size:14px;font-weight:600;color:var(--dark);margin-bottom:6px}
+.spec-desc{font-size:12px;color:var(--faint);line-height:1.5}
 
 /* STRIP */
-.strip-wrap{padding:0 56px 72px}
-.strip{border-radius:4px;background:var(--dark);padding:36px 44px;
-  display:flex;justify-content:space-between;align-items:center;gap:24px;border-top:2px solid var(--blue)}
-.strip h3{font-family:'Oxanium',sans-serif;font-size:22px;font-weight:800;color:#fff;margin-bottom:5px}
-.strip p{font-size:13px;color:rgba(160,200,240,0.45)}
-.strip-btn{background:var(--blue);color:#fff;border:none;padding:13px 28px;border-radius:2px;
-  font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;
-  font-family:'Space Grotesk',sans-serif;white-space:nowrap;text-decoration:none;transition:opacity .2s}
-.strip-btn:hover{opacity:.88}
+.strip-wrap{padding:0 56px 96px}
+.strip{background:var(--blue);border-radius:24px;padding:64px 64px;
+  display:flex;justify-content:space-between;align-items:center;gap:40px;
+  position:relative;overflow:hidden}
+.strip::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;
+  border:1px solid rgba(255,255,255,0.1);top:-200px;right:-100px;pointer-events:none}
+.strip::after{content:'';position:absolute;width:280px;height:280px;border-radius:50%;
+  border:1px solid rgba(255,255,255,0.07);top:-80px;right:80px;pointer-events:none}
+.strip h3{font-family:'Syne',sans-serif;font-size:34px;font-weight:800;color:#fff;
+  letter-spacing:-.02em;line-height:1.05;margin-bottom:10px}
+.strip p{font-size:14px;color:rgba(255,255,255,0.55)}
+.strip-btn{background:#fff;color:var(--dark);padding:16px 36px;border-radius:8px;
+  font-size:12px;font-weight:700;text-decoration:none;letter-spacing:.06em;
+  text-transform:uppercase;white-space:nowrap;position:relative;z-index:1;transition:opacity .2s}
+.strip-btn:hover{opacity:.9}
 
 /* ÉQUIPE */
-.equipe-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.eq-card{border:1px solid var(--blue-b);border-radius:3px;padding:20px;
-  background:var(--white);position:relative;overflow:hidden;transition:box-shadow .2s}
-.eq-card:hover{box-shadow:0 4px 20px rgba(0,140,255,0.1)}
-.eq-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;
-  background:linear-gradient(to bottom,var(--blue),rgba(0,140,255,0.1))}
-.eq-init{font-family:'Oxanium',sans-serif;font-size:12px;font-weight:800;color:var(--blue);
-  background:var(--blue-l);border:1px solid var(--blue-b);border-radius:2px;
-  padding:5px 9px;display:inline-block;margin-bottom:10px}
-.eq-name{font-size:13px;font-weight:500;color:var(--dark);margin-bottom:4px}
-.eq-spec{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);opacity:.6}
-.eq-link{display:inline-flex;align-items:center;gap:4px;margin-top:10px;
-  font-size:10px;color:var(--blue);text-decoration:none;letter-spacing:.06em;text-transform:uppercase}
+.eq-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.eq-card{background:#fff;border:1px solid var(--border);border-radius:16px;
+  padding:24px 20px;position:relative;overflow:hidden;transition:box-shadow .2s,border-color .2s}
+.eq-card:hover{box-shadow:0 8px 32px rgba(59,125,255,0.1);border-color:var(--blue-b)}
+.eq-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:var(--blue);transform:scaleX(0);transform-origin:left;transition:transform .28s}
+.eq-card:hover::after{transform:scaleX(1)}
+.eq-av{width:48px;height:48px;background:var(--dark);border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Syne',sans-serif;font-size:14px;font-weight:800;
+  color:#fff;margin-bottom:14px;letter-spacing:.04em}
+.eq-name{font-size:13px;font-weight:600;color:var(--dark);margin-bottom:6px}
+.eq-spec{font-size:10px;color:var(--blue);background:var(--blue-l);
+  padding:3px 9px;border-radius:5px;display:inline-block;letter-spacing:.05em}
+.eq-link{display:block;margin-top:14px;font-size:11px;color:var(--faint);
+  text-decoration:none;letter-spacing:.04em;transition:color .2s}
+.eq-link:hover{color:var(--blue)}
 
 /* PRENOTA */
-.prenota-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-.prenota-img-wrap{position:relative;border-radius:6px;overflow:hidden;height:100%;min-height:400px}
-.prenota-img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
-.prenota-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(11,26,46,0.7) 0%,transparent 50%)}
-.prenota-img-text{position:absolute;bottom:24px;left:24px;right:24px}
-.prenota-img-text h3{font-family:'Oxanium',sans-serif;font-size:20px;font-weight:800;color:#fff;margin-bottom:6px}
-.prenota-img-text p{font-size:12px;color:rgba(255,255,255,0.65);line-height:1.6}
-
-/* PANEL */
-.panel{border:1px solid var(--blue-b);border-radius:4px;background:#f8fbff;position:relative;overflow:hidden}
-.panel::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,transparent,var(--blue),transparent)}
-.panel-head{padding:14px 20px;border-bottom:1px solid var(--blue-b);display:flex;align-items:center;gap:8px}
-.pdot{width:6px;height:6px;background:var(--green);border-radius:50%}
-.panel-title{font-family:'Oxanium',sans-serif;font-size:10px;font-weight:700;
-  letter-spacing:.2em;text-transform:uppercase;color:var(--blue)}
-.panel-badge{margin-left:auto;font-size:9px;color:var(--faint)}
-.panel-body{padding:18px 20px 20px}
-.panel-sub{font-size:10px;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--blue);opacity:.65;margin-bottom:14px;font-weight:500}
+.prenota-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.prenota-img{position:relative;border-radius:20px;overflow:hidden;min-height:500px}
+.prenota-img img{width:100%;height:100%;object-fit:cover;display:block}
+.prenota-img-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,14,26,0.88) 0%,rgba(10,14,26,0.1) 55%)}
+.prenota-caption{position:absolute;bottom:36px;left:36px;right:36px}
+.prenota-caption h3{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;
+  color:#fff;letter-spacing:-.02em;margin-bottom:10px;line-height:1.1}
+.prenota-caption p{font-size:13px;color:rgba(255,255,255,0.5)}
+.panel{background:#fff;border:1px solid var(--border);border-radius:20px;overflow:hidden}
+.panel-top{background:var(--dark);padding:20px 26px;display:flex;align-items:center;gap:10px}
+.panel-dot{width:6px;height:6px;background:var(--green);border-radius:50%}
+.panel-t{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;
+  color:#fff;letter-spacing:.16em;text-transform:uppercase}
+.panel-badge{margin-left:auto;font-size:10px;color:rgba(255,255,255,0.28)}
+.panel-body{padding:24px 26px}
+.panel-sub{font-size:10px;color:var(--faint);letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px;font-weight:500}
 .doc-list{display:flex;flex-direction:column;gap:8px}
 .doc-btn{display:flex;align-items:center;justify-content:space-between;
-  padding:11px 14px;background:#fff;border:1px solid var(--blue-b);
-  border-radius:3px;text-decoration:none;transition:border-color .18s,box-shadow .18s}
-.doc-btn:hover{border-color:var(--blue-bs);box-shadow:0 2px 12px rgba(0,140,255,0.08)}
+  padding:13px 16px;background:var(--bg);border:1px solid transparent;
+  border-radius:10px;text-decoration:none;transition:border-color .15s,background .15s}
+.doc-btn:hover{background:var(--blue-l);border-color:var(--blue-b)}
 .doc-name{font-size:13px;color:var(--dark);font-weight:500;display:block}
-.doc-spec{font-size:10px;color:var(--faint);display:block}
-.doc-arrow{font-size:11px;color:var(--blue);white-space:nowrap}
-.panel-status{display:flex;align-items:center;gap:7px;margin-top:14px;justify-content:center}
+.doc-spec{font-size:10px;color:var(--faint);display:block;margin-top:1px}
+.doc-arr{font-size:18px;color:var(--blue)}
+.panel-status{display:flex;align-items:center;gap:7px;margin-top:18px;justify-content:center}
 .sdot{width:5px;height:5px;background:var(--green);border-radius:50%}
 .stext{font-size:10px;color:var(--faint);letter-spacing:.08em}
 
 /* INFO */
-.info-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
-  background:var(--blue-b);border:1px solid var(--blue-b);border-radius:6px;overflow:hidden}
-.info-cell{background:var(--white);padding:26px 22px}
-.info-dot-row{display:flex;align-items:center;gap:7px;margin-bottom:10px}
-.info-dot{width:4px;height:4px;background:var(--blue);border-radius:50%}
-.info-lbl{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);opacity:.65;font-weight:500}
-.info-val{font-size:13px;color:var(--dark);line-height:1.85;font-weight:300}
+.info-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.info-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:30px 24px}
+.info-num{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;
+  color:var(--blue);letter-spacing:.16em;text-transform:uppercase;margin-bottom:16px}
+.info-lbl{font-size:12px;font-weight:600;color:var(--dark);margin-bottom:10px}
+.info-val{font-size:13px;color:var(--muted);line-height:1.85;font-weight:300}
 .info-val a{color:var(--blue);text-decoration:none}
+.info-val a:hover{text-decoration:underline}
 
 /* FOOTER */
-footer{background:var(--dark);padding:32px 56px;
+footer{background:var(--dark);padding:40px 56px;
   display:grid;grid-template-columns:1fr auto auto;gap:32px;align-items:center}
-.foot-brand{font-family:'Oxanium',sans-serif;font-size:13px;font-weight:800;color:#fff;margin-bottom:4px}
-.foot-sub{font-size:10px;color:rgba(160,200,240,0.3);letter-spacing:.04em}
+.foot-brand{font-family:'Syne',sans-serif;font-size:14px;font-weight:800;color:#fff;margin-bottom:5px;letter-spacing:.02em}
+.foot-sub{font-size:11px;color:rgba(255,255,255,0.2)}
 .foot-links{display:flex;gap:20px;flex-wrap:wrap}
-.foot-links a{font-size:10px;color:rgba(0,140,255,0.45);text-decoration:none;letter-spacing:.07em;text-transform:uppercase;transition:color .2s}
-.foot-links a:hover{color:var(--blue)}
-.accred{border:1px solid rgba(0,214,143,0.28);border-radius:2px;padding:5px 12px;
-  font-size:10px;color:rgba(0,214,143,0.6);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+.foot-links a{font-size:10px;color:rgba(255,255,255,0.25);text-decoration:none;
+  letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+.foot-links a:hover{color:rgba(255,255,255,0.6)}
+.foot-badge{border:1px solid rgba(34,197,94,0.3);border-radius:6px;
+  padding:6px 14px;font-size:10px;color:rgba(34,197,94,0.5);letter-spacing:.14em;text-transform:uppercase}
 
 /* RESPONSIVE */
-@media(max-width:1024px){
+@media(max-width:1100px){
   .hero{grid-template-columns:1fr}
-  .hero-right{height:400px}
+  .hero-right{height:420px}
   .hero-badge{display:none}
-  .equipe-grid{grid-template-columns:repeat(2,1fr)}
+  .eq-grid{grid-template-columns:repeat(2,1fr)}
   .spec-grid{grid-template-columns:repeat(2,1fr)}
+  .block{grid-template-columns:1fr}
+  .block-img-wrap{min-height:280px}
   .prenota-grid{grid-template-columns:1fr}
-  .prenota-img-wrap{min-height:260px}
-  .clinica-block{grid-template-columns:1fr;gap:32px}
-  .clinica-block.rev{direction:ltr}
-  .clinica-img{height:260px}
+  .prenota-img{min-height:320px}
 }
 @media(max-width:768px){
   .nav{padding:0 20px}
   .nav-links,.nav-cta{display:none}
-  .nav-hamburger{display:flex}
-  h1.hero-h1,.h1-outline{font-size:34px}
-  .hero-left{padding:40px 24px}
-  .stats{grid-template-columns:repeat(2,1fr)}
-  .stat{padding:16px 20px}
-  section{padding:48px 20px}
-  .spec-grid{grid-template-columns:1fr 1fr}
-  .equipe-grid{grid-template-columns:1fr 1fr}
+  .hamburger{display:flex}
+  h1.hero-h1{font-size:38px}
+  .hero-left{padding:48px 24px}
+  h2.sec-title{font-size:28px}
+  section{padding:56px 20px}
+  .strip-wrap{padding:0 20px 56px}
+  .strip{flex-direction:column;align-items:flex-start;gap:20px;padding:36px 28px}
+  .strip h3{font-size:24px}
   .info-grid{grid-template-columns:1fr 1fr}
-  .strip-wrap{padding:0 20px 48px}
-  .strip{flex-direction:column;align-items:flex-start;gap:16px;padding:24px 20px}
-  footer{grid-template-columns:1fr;padding:24px 20px;gap:16px}
+  footer{grid-template-columns:1fr;padding:28px 20px;gap:20px}
+  .block-content{padding:32px 24px}
 }
 @media(max-width:480px){
-  .spec-grid,.equipe-grid,.info-grid{grid-template-columns:1fr}
-  h1.hero-h1,.h1-outline{font-size:28px}
+  .spec-grid,.eq-grid,.info-grid{grid-template-columns:1fr}
+  h1.hero-h1{font-size:30px}
+  h1.hero-h1 .outline,.accent{font-size:30px}
 }
 </style>
 </head>
@@ -249,20 +274,17 @@ footer{background:var(--dark);padding:32px 56px;
 <nav class="nav">
   <a class="nav-logo" href="#">
     <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,fit=crop/J4tGMURsXwwCH1vY/logo_white_t-AdwDt7F54uNAMIOT.png" alt="Villa del Sole"/>
-    <div>
-      <span class="nav-logo-name">Villa del Sole</span>
-      <span class="nav-logo-sub">Casa di Cura · Cosenza</span>
-    </div>
+    <div><span class="nav-logo-n">Villa del Sole</span><span class="nav-logo-s">Casa di Cura · Cosenza</span></div>
   </a>
   <div class="nav-links">
     <a href="#clinica">La clinica</a>
     <a href="#specialita">Specialità</a>
     <a href="#equipe">Équipe</a>
     <a href="#prenota">Prenota</a>
-    <a href="#info">Informazioni</a>
+    <a href="#info">Info</a>
   </div>
-  <a class="nav-cta" href="#prenota">Prenota →</a>
-  <button class="nav-hamburger" onclick="document.getElementById('mm').classList.toggle('open')" aria-label="Menu">
+  <a class="nav-cta" href="#prenota">Prenota ora</a>
+  <button class="hamburger" onclick="document.getElementById('mm').classList.toggle('open')" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -276,131 +298,151 @@ footer{background:var(--dark);padding:32px 56px;
   <a href="#prenota" class="m-cta" onclick="document.getElementById('mm').classList.remove('open')">Prenota subito →</a>
 </div>
 
-<!-- HERO SPLIT 50/50 -->
+<!-- HERO -->
 <div class="hero">
   <div class="hero-left">
-    <div class="grid-bg"></div>
-    <div class="hero-glow"></div>
-    <div class="hero-content">
-      <div class="hero-tag">
-        <div class="hero-tag-line"></div>
-        <span class="hero-tag-text">Struttura sanitaria privata · Cosenza, Calabria</span>
-      </div>
+    <div class="hero-geo1"></div>
+    <div class="hero-geo2"></div>
+    <div class="hero-geo3"></div>
+    <div>
+      <div class="hero-tag"><div class="hero-tag-dot"></div><span>Struttura privata accreditata SSN · Cosenza</span></div>
       <h1 class="hero-h1">
-        Medicina<br>
-        <span class="h1-outline">avanzata</span>
-        al tuo <span class="h1-blue">fianco.</span>
+        La tua salute<br>
+        <span class="outline">merita</span>
+        <span class="accent">il meglio.</span>
       </h1>
-      <p class="hero-sub">Cardiologia, chirurgia specialistica e diagnostica di eccellenza in una struttura moderna e accreditata SSN, al servizio dei pazienti dal 1972.</p>
-      <div class="hero-actions">
-        <a class="btn-primary" href="#prenota">Prenota una visita</a>
-        <a class="btn-ghost" href="#clinica">Scopri la struttura →</a>
+      <p class="hero-sub">Cardiologia, chirurgia specialistica e diagnostica d'eccellenza al servizio dei pazienti dal 1972.</p>
+      <div class="hero-btns">
+        <a href="#prenota" class="btn-w">Prenota una visita</a>
+        <a href="#clinica" class="btn-ghost">Scopri →</a>
       </div>
+    </div>
+    <div class="hero-bottom">
+      <div><div class="hero-stat-n">30+</div><div class="hero-stat-l">Anni</div></div>
+      <div><div class="hero-stat-n">74</div><div class="hero-stat-l">Posti letto</div></div>
+      <div><div class="hero-stat-n">8</div><div class="hero-stat-l">Specialisti</div></div>
     </div>
   </div>
   <div class="hero-right">
-    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,h=900,fit=crop/J4tGMURsXwwCH1vY/accettazione-3-cNUrjHkhtGyPcgli.jpg" alt="Corridoio Casa di Cura Villa del Sole"/>
-    <div class="hero-right-overlay"></div>
+    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,h=900,fit=crop/J4tGMURsXwwCH1vY/accettazione-3-cNUrjHkhtGyPcgli.jpg" alt="Casa di Cura Villa del Sole"/>
+    <div class="hero-right-ov"></div>
     <div class="hero-badge">
       <div class="hero-badge-n">1972</div>
-      <div class="hero-badge-l">Anno di fondazione</div>
+      <div class="hero-badge-l">Fondazione</div>
+      <div class="hero-badge-accent"></div>
     </div>
   </div>
 </div>
 
-<!-- STATS -->
-<div class="stats">
-  <div class="stat"><div class="stat-n">30+</div><div class="stat-l">Anni di attività</div></div>
-  <div class="stat"><div class="stat-n">74</div><div class="stat-l">Posti letto</div></div>
-  <div class="stat"><div class="stat-n">8</div><div class="stat-l">Specialisti</div></div>
-  <div class="stat"><div class="stat-n">SSN</div><div class="stat-l">Struttura accreditata</div></div>
+<!-- MARQUEE -->
+<div class="band">
+  <div class="band-inner">
+    <span class="band-item">Cardiologia</span>
+    <span class="band-item">Chirurgia Generale</span>
+    <span class="band-item">Chirurgia Senologica</span>
+    <span class="band-item">Chirurgia Endocrina</span>
+    <span class="band-item">Reumatologia</span>
+    <span class="band-item">Diagnostica Vascolare</span>
+    <span class="band-item">Ecografia Internistica</span>
+    <span class="band-item">Accreditata SSN</span>
+    <span class="band-item">Cardiologia</span>
+    <span class="band-item">Chirurgia Generale</span>
+    <span class="band-item">Chirurgia Senologica</span>
+    <span class="band-item">Chirurgia Endocrina</span>
+    <span class="band-item">Reumatologia</span>
+    <span class="band-item">Diagnostica Vascolare</span>
+    <span class="band-item">Ecografia Internistica</span>
+    <span class="band-item">Accreditata SSN</span>
+  </div>
 </div>
 
 <!-- LA CLINICA -->
-<section id="clinica" class="alt">
-  <div class="sec-label"><span>La casa di cura</span></div>
-  <div class="sec-title">Chi siamo</div>
+<section id="clinica">
+  <div class="eyebrow">La casa di cura</div>
+  <h2 class="sec-title">Chi siamo e <em>cosa facciamo</em></h2>
 
-  <!-- Block 1: Struttura -->
-  <div class="clinica-block">
-    <img class="clinica-img"
-      src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=900,h=600,fit=crop/J4tGMURsXwwCH1vY/segretaria-bMlLUecU2dzlvmsD.jpg"
-      alt="Segreteria Villa del Sole"/>
-    <div class="clinica-text">
-      <h3>La struttura</h3>
-      <p>La Casa di Cura Villa del Sole eroga, in regime di ricovero ordinario, servizi e prestazioni di diagnosi e cura in Chirurgia e Riabilitazione Cardiorespiratoria.</p>
-      <p>Dispone di <strong>44 posti letto</strong> per la Chirurgia Generale e <strong>30 posti letto</strong> di Riabilitazione intensiva, con 32 camere di degenza dotate di servizi indipendenti.</p>
-      <ul>
-        <li>Chirurgia Generale — day surgery e ricovero ordinario</li>
-        <li>Riabilitazione Cardiorespiratoria intensiva (cod. 56)</li>
-        <li>Visite mediche specialistiche ambulatoriali</li>
-        <li>Assistenza infermieristica continua H24</li>
-      </ul>
+  <div class="block">
+    <div class="block-img-wrap">
+      <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=900,h=700,fit=crop/J4tGMURsXwwCH1vY/segretaria-bMlLUecU2dzlvmsD.jpg" alt="Struttura"/>
+      <div class="block-label"><span>La struttura</span></div>
+    </div>
+    <div class="block-content">
+      <div class="block-num">01 — Struttura</div>
+      <h3 class="block-h3">44 posti letto, 32 camere, un team dedicato</h3>
+      <p class="block-p">Chirurgia Generale e Riabilitazione Cardiorespiratoria in 74 posti letto totali, con camere dotate di ogni comfort e assistenza infermieristica H24.</p>
+      <div class="block-tags">
+        <span class="tag">Chirurgia Generale</span>
+        <span class="tag">Riabilitazione cod. 56</span>
+        <span class="tag">Day Surgery</span>
+      </div>
     </div>
   </div>
 
-  <!-- Block 2: Cardiologia (immagine caricata) -->
-  <div class="clinica-block rev">
-    <img class="clinica-img" src="cuore_.png" alt="Cardiologia Villa del Sole"/>
-    <div class="clinica-text">
-      <h3>Cardiologia</h3>
-      <p>Il reparto di Cardiologia offre diagnosi e trattamento completo delle patologie cardiovascolari, con strumentazione di ultima generazione e un team specializzato guidato dal Dr. Antonio Scillone.</p>
-      <p>Eseguiamo ECG, ecocardiogrammi, holter cardiaci e test da sforzo, oltre al monitoraggio dei pazienti ricoverati nel reparto di Riabilitazione Cardiorespiratoria.</p>
-      <ul>
-        <li>Elettrocardiogramma e holter cardiaco</li>
-        <li>Ecocardiografia</li>
-        <li>Riabilitazione cardiorespiratoria</li>
-        <li>Monitoraggio pazienti post-operatori</li>
-      </ul>
+  <div class="block" style="direction:rtl">
+    <div class="block-img-wrap" style="direction:ltr">
+      <img src="cuore_.png" alt="Cardiologia"/>
+      <div class="block-label"><span>Cardiologia</span></div>
+    </div>
+    <div class="block-content" style="direction:ltr">
+      <div class="block-num">02 — Cardiologia</div>
+      <h3 class="block-h3">Il cuore è la nostra specialità principale</h3>
+      <p class="block-p">Diagnosi e cura delle patologie cardiovascolari con strumentazione avanzata, guidata dal Dr. Antonio Scillone. ECG, holter, ecocardiografia e riabilitazione post-operatoria.</p>
+      <div class="block-tags">
+        <span class="tag">ECG · Holter</span>
+        <span class="tag">Ecocardiografia</span>
+        <span class="tag">Riabilitazione</span>
+      </div>
     </div>
   </div>
 
-  <!-- Block 3: Chirurgia (immagine caricata) -->
-  <div class="clinica-block">
-    <img class="clinica-img" src="chirurgia_generale11.jpg" alt="Chirurgia Villa del Sole"/>
-    <div class="clinica-text">
-      <h3>Chirurgia</h3>
-      <p>Il reparto di Chirurgia Generale dispone di sale operatorie attrezzate per interventi in day surgery e ricovero ordinario, con un team chirurgico di comprovata esperienza.</p>
-      <p>Operiamo in chirurgia generale, senologica, endocrina e proctologica, garantendo il massimo della sicurezza e percorsi di cura personalizzati per ogni paziente.</p>
-      <ul>
-        <li>Chirurgia generale e laparoscopica</li>
-        <li>Chirurgia senologica — Dr. Sergio Abonante</li>
-        <li>Chirurgia endocrina — Prof. Piero Berti</li>
-        <li>Piccola chirurgia proctologica</li>
-      </ul>
+  <div class="block">
+    <div class="block-img-wrap">
+      <img src="chirurgia_generale11.jpg" alt="Chirurgia"/>
+      <div class="block-label"><span>Chirurgia</span></div>
+    </div>
+    <div class="block-content">
+      <div class="block-num">03 — Chirurgia</div>
+      <h3 class="block-h3">Sale operatorie all'avanguardia</h3>
+      <p class="block-p">Chirurgia generale, senologica, endocrina e proctologica. Team di comprovata esperienza per interventi in day surgery o ricovero ordinario con massima sicurezza.</p>
+      <div class="block-tags">
+        <span class="tag">Laparoscopia</span>
+        <span class="tag">Ch. Senologica</span>
+        <span class="tag">Ch. Endocrina</span>
+      </div>
     </div>
   </div>
 
-  <!-- Block 4: Missione (immagine caricata) -->
-  <div class="clinica-block rev">
-    <img class="clinica-img" src="Gemini_Generated_Image_sryo5osryo5osryo.png" alt="Missione Villa del Sole"/>
-    <div class="clinica-text">
-      <h3>La nostra missione</h3>
-      <p>Il fine istituzionale della Casa di Cura Villa del Sole è erogare servizi di diagnosi e cura garantendo il massimo della sicurezza e le cure della più alta qualità.</p>
-      <p>Operiamo nel rispetto di ogni paziente, garantendo un ambiente umano e accogliente, lontano da qualsiasi forma di spersonalizzazione del percorso di cura.</p>
-      <ul>
-        <li>Eguaglianza e imparzialità per ogni paziente</li>
-        <li>Continuità del servizio senza interruzioni</li>
-        <li>Tutela attiva dei diritti del cittadino</li>
-        <li>Massima efficacia e qualità delle cure</li>
-      </ul>
+  <div class="block" style="direction:rtl">
+    <div class="block-img-wrap" style="direction:ltr">
+      <img src="Gemini_Generated_Image_sryo5osryo5osryo.png" alt="Missione"/>
+      <div class="block-label"><span>La missione</span></div>
+    </div>
+    <div class="block-content" style="direction:ltr">
+      <div class="block-num">04 — Missione</div>
+      <h3 class="block-h3">Cura, sicurezza, rispetto per ogni persona</h3>
+      <p class="block-p">Operiamo garantendo il massimo della sicurezza medica in un ambiente umano e accogliente. Eguaglianza, continuità e tutela dei diritti di ogni paziente.</p>
+      <div class="block-tags">
+        <span class="tag">Qualità certificata</span>
+        <span class="tag">Accreditata SSN</span>
+        <span class="tag">H24</span>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- SPECIALITÀ -->
-<section id="specialita">
-  <div class="sec-label"><span>Reparti clinici</span></div>
-  <div class="sec-title">Aree di specializzazione</div>
+<section id="specialita" class="alt">
+  <div class="eyebrow">Reparti clinici</div>
+  <h2 class="sec-title">Le nostre <em>specialità</em></h2>
   <div class="spec-grid">
-    <div class="spec-cell"><span class="spec-n">01</span><div><div class="spec-name">Cardiologia</div><div class="spec-desc">Diagnosi e cura delle patologie cardiovascolari</div></div></div>
-    <div class="spec-cell"><span class="spec-n">02</span><div><div class="spec-name">Chirurgia Generale</div><div class="spec-desc">Interventi in day surgery e ricovero ordinario</div></div></div>
-    <div class="spec-cell"><span class="spec-n">03</span><div><div class="spec-name">Chirurgia Senologica</div><div class="spec-desc">Patologie della mammella e oncologia</div></div></div>
-    <div class="spec-cell"><span class="spec-n">04</span><div><div class="spec-name">Chirurgia Endocrina</div><div class="spec-desc">Tiroide, paratiroidi e ghiandole surrenali</div></div></div>
-    <div class="spec-cell"><span class="spec-n">05</span><div><div class="spec-name">Reumatologia</div><div class="spec-desc">Diagnosi e trattamento delle patologie reumatiche</div></div></div>
-    <div class="spec-cell"><span class="spec-n">06</span><div><div class="spec-name">Diagnostica Vascolare</div><div class="spec-desc">Ecocolordoppler e studio dei vasi sanguigni</div></div></div>
-    <div class="spec-cell"><span class="spec-n">07</span><div><div class="spec-name">Ecografia Internistica</div><div class="spec-desc">Diagnostica per immagini degli organi interni</div></div></div>
-    <div class="spec-cell"><span class="spec-n">08</span><div><div class="spec-name">Piccola Chirurgia</div><div class="spec-desc">Chirurgia proctologica e ambulatoriale</div></div></div>
+    <div class="spec-cell"><div class="spec-n">01</div><div class="spec-name">Cardiologia</div><div class="spec-desc">Diagnosi e cura cardiovascolare avanzata</div></div>
+    <div class="spec-cell"><div class="spec-n">02</div><div class="spec-name">Chirurgia Generale</div><div class="spec-desc">Day surgery e ricovero ordinario</div></div>
+    <div class="spec-cell"><div class="spec-n">03</div><div class="spec-name">Chirurgia Senologica</div><div class="spec-desc">Patologie della mammella e oncologia</div></div>
+    <div class="spec-cell"><div class="spec-n">04</div><div class="spec-name">Chirurgia Endocrina</div><div class="spec-desc">Tiroide, paratiroidi e ghiandole</div></div>
+    <div class="spec-cell"><div class="spec-n">05</div><div class="spec-name">Reumatologia</div><div class="spec-desc">Patologie reumatiche e articolari</div></div>
+    <div class="spec-cell"><div class="spec-n">06</div><div class="spec-name">Diagnostica Vascolare</div><div class="spec-desc">Ecocolordoppler e studio dei vasi</div></div>
+    <div class="spec-cell"><div class="spec-n">07</div><div class="spec-name">Ecografia Internistica</div><div class="spec-desc">Diagnostica per immagini degli organi</div></div>
+    <div class="spec-cell"><div class="spec-n">08</div><div class="spec-name">Piccola Chirurgia</div><div class="spec-desc">Chirurgia proctologica ambulatoriale</div></div>
   </div>
 </section>
 
@@ -409,87 +451,76 @@ footer{background:var(--dark);padding:32px 56px;
   <div class="strip">
     <div>
       <h3>Hai bisogno di una visita urgente?</h3>
-      <p>Disponibilità in tempi brevi · Prenota direttamente online con conferma immediata</p>
+      <p>Disponibilità in tempi brevi · Prenota con conferma immediata · cal.com</p>
     </div>
-    <a class="strip-btn" href="#prenota">Prenota adesso →</a>
+    <a href="#prenota" class="strip-btn">Prenota adesso →</a>
   </div>
 </div>
 
 <!-- ÉQUIPE -->
 <section id="equipe" class="alt">
-  <div class="sec-label"><span>Équipe medica</span></div>
-  <div class="sec-title">I nostri specialisti</div>
-  <div class="equipe-grid">
-    <div class="eq-card"><div class="eq-init">AS</div><div class="eq-name">Dr. Antonio Scillone</div><div class="eq-spec">Cardiologia</div><a class="eq-link" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-dr-scillone" target="_blank">Prenota visita →</a></div>
-    <div class="eq-card"><div class="eq-init">MC</div><div class="eq-name">Dr. Massimo Canonaco</div><div class="eq-spec">Chirurgia Proctologica</div><a class="eq-link" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-dr-canonaco" target="_blank">Prenota visita →</a></div>
-    <div class="eq-card"><div class="eq-init">MS</div><div class="eq-name">Dr.ssa Maddalena Scillone</div><div class="eq-spec">Reumatologia</div><a class="eq-link" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-drssa-scillone-maddalena" target="_blank">Prenota visita →</a></div>
-    <div class="eq-card"><div class="eq-init">SA</div><div class="eq-name">Dr. Sergio Abonante</div><div class="eq-spec">Chirurgia Senologica</div><a class="eq-link" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-drabonante-sergio" target="_blank">Prenota visita →</a></div>
-    <div class="eq-card"><div class="eq-init">PB</div><div class="eq-name">Prof. Piero Berti</div><div class="eq-spec">Chirurgia Endocrina</div><a class="eq-link" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-profberti-piero" target="_blank">Prenota visita →</a></div>
-    <div class="eq-card"><div class="eq-init">TS</div><div class="eq-name">Dr.ssa Teresa Scillone</div><div class="eq-spec">Ecografia Internistica</div><a class="eq-link" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-drssa-scillone-teresa" target="_blank">Prenota visita →</a></div>
-    <div class="eq-card"><div class="eq-init">PM</div><div class="eq-name">Dr. Pietro Miraglia</div><div class="eq-spec">Diagnostica Vascolare</div><a class="eq-link" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-dr-miraglia-pietro" target="_blank">Prenota visita →</a></div>
-    <div class="eq-card"><div class="eq-init">PA</div><div class="eq-name">Dr. Pietro Ajello</div><div class="eq-spec">Chirurgia Generale</div><a class="eq-link" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-chirurgia-generale" target="_blank">Prenota visita →</a></div>
+  <div class="eyebrow">Équipe medica</div>
+  <h2 class="sec-title">I nostri <em>specialisti</em></h2>
+  <div class="eq-grid">
+    <div class="eq-card"><div class="eq-av">AS</div><div class="eq-name">Dr. Antonio Scillone</div><div class="eq-spec">Cardiologia</div><a class="eq-link" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-dr-scillone" target="_blank">Prenota visita →</a></div>
+    <div class="eq-card"><div class="eq-av">MC</div><div class="eq-name">Dr. Massimo Canonaco</div><div class="eq-spec">Chirurgia Proctologica</div><a class="eq-link" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-dr-canonaco" target="_blank">Prenota visita →</a></div>
+    <div class="eq-card"><div class="eq-av">MS</div><div class="eq-name">Dr.ssa M. Scillone</div><div class="eq-spec">Reumatologia</div><a class="eq-link" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-drssa-scillone-maddalena" target="_blank">Prenota visita →</a></div>
+    <div class="eq-card"><div class="eq-av">SA</div><div class="eq-name">Dr. Sergio Abonante</div><div class="eq-spec">Ch. Senologica</div><a class="eq-link" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-drabonante-sergio" target="_blank">Prenota visita →</a></div>
+    <div class="eq-card"><div class="eq-av">PB</div><div class="eq-name">Prof. Piero Berti</div><div class="eq-spec">Ch. Endocrina</div><a class="eq-link" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-profberti-piero" target="_blank">Prenota visita →</a></div>
+    <div class="eq-card"><div class="eq-av">TS</div><div class="eq-name">Dr.ssa T. Scillone</div><div class="eq-spec">Ecografia Int.</div><a class="eq-link" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-drssa-scillone-teresa" target="_blank">Prenota visita →</a></div>
+    <div class="eq-card"><div class="eq-av">PM</div><div class="eq-name">Dr. Pietro Miraglia</div><div class="eq-spec">Diagnostica Vasc.</div><a class="eq-link" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-dr-miraglia-pietro" target="_blank">Prenota visita →</a></div>
+    <div class="eq-card"><div class="eq-av">PA</div><div class="eq-name">Dr. Pietro Ajello</div><div class="eq-spec">Ch. Generale</div><a class="eq-link" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-chirurgia-generale" target="_blank">Prenota visita →</a></div>
   </div>
 </section>
 
 <!-- PRENOTA -->
 <section id="prenota">
-  <div class="sec-label"><span>Prenotazione online</span></div>
-  <div class="sec-title">Scegli il tuo specialista</div>
+  <div class="eyebrow">Prenotazione online</div>
+  <h2 class="sec-title">Scegli il tuo <em>specialista</em></h2>
   <div class="prenota-grid">
-    <div class="prenota-img-wrap">
-      <img src="Gemini_Generated_Image_vw8ukdvw8ukdvw8u.png" alt="Prenota la tua visita"/>
-      <div class="prenota-img-overlay"></div>
-      <div class="prenota-img-text">
+    <div class="prenota-img">
+      <img src="Gemini_Generated_Image_vw8ukdvw8ukdvw8u.png" alt="Prenota online"/>
+      <div class="prenota-img-ov"></div>
+      <div class="prenota-caption">
         <h3>Prenota in pochi secondi</h3>
-        <p>Calendario online in tempo reale · Conferma immediata · Nessuna attesa telefonica</p>
+        <p>Calendario live · Conferma immediata · Nessuna attesa telefonica</p>
       </div>
     </div>
     <div class="panel">
-      <div class="panel-head">
-        <div class="pdot"></div>
-        <span class="panel-title">// Prenota online</span>
-        <span class="panel-badge">Powered by cal.com</span>
+      <div class="panel-top">
+        <div class="panel-dot"></div>
+        <span class="panel-t">Prenota online</span>
+        <span class="panel-badge">cal.com</span>
       </div>
       <div class="panel-body">
-        <div class="panel-sub">Seleziona il tuo specialista</div>
+        <div class="panel-sub">Seleziona specialista</div>
         <div class="doc-list">
           <a class="doc-btn" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-dr-scillone" target="_blank">
-            <div><span class="doc-name">Dr. Antonio Scillone</span><span class="doc-spec">Cardiologia</span></div>
-            <span class="doc-arrow">Prenota →</span>
+            <div><span class="doc-name">Dr. Antonio Scillone</span><span class="doc-spec">Cardiologia</span></div><span class="doc-arr">→</span>
           </a>
           <a class="doc-btn" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-dr-canonaco" target="_blank">
-            <div><span class="doc-name">Dr. Massimo Canonaco</span><span class="doc-spec">Chirurgia Proctologica</span></div>
-            <span class="doc-arrow">Prenota →</span>
+            <div><span class="doc-name">Dr. Massimo Canonaco</span><span class="doc-spec">Chirurgia Proctologica</span></div><span class="doc-arr">→</span>
           </a>
           <a class="doc-btn" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-drssa-scillone-maddalena" target="_blank">
-            <div><span class="doc-name">Dr.ssa Maddalena Scillone</span><span class="doc-spec">Reumatologia</span></div>
-            <span class="doc-arrow">Prenota →</span>
+            <div><span class="doc-name">Dr.ssa Maddalena Scillone</span><span class="doc-spec">Reumatologia</span></div><span class="doc-arr">→</span>
           </a>
           <a class="doc-btn" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-drabonante-sergio" target="_blank">
-            <div><span class="doc-name">Dr. Sergio Abonante</span><span class="doc-spec">Chirurgia Senologica</span></div>
-            <span class="doc-arrow">Prenota →</span>
+            <div><span class="doc-name">Dr. Sergio Abonante</span><span class="doc-spec">Chirurgia Senologica</span></div><span class="doc-arr">→</span>
           </a>
           <a class="doc-btn" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-profberti-piero" target="_blank">
-            <div><span class="doc-name">Prof. Piero Berti</span><span class="doc-spec">Chirurgia Endocrina</span></div>
-            <span class="doc-arrow">Prenota →</span>
+            <div><span class="doc-name">Prof. Piero Berti</span><span class="doc-spec">Chirurgia Endocrina</span></div><span class="doc-arr">→</span>
           </a>
           <a class="doc-btn" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-drssa-scillone-teresa" target="_blank">
-            <div><span class="doc-name">Dr.ssa Teresa Scillone</span><span class="doc-spec">Ecografia Internistica</span></div>
-            <span class="doc-arrow">Prenota →</span>
+            <div><span class="doc-name">Dr.ssa Teresa Scillone</span><span class="doc-spec">Ecografia Internistica</span></div><span class="doc-arr">→</span>
           </a>
           <a class="doc-btn" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-dr-miraglia-pietro" target="_blank">
-            <div><span class="doc-name">Dr. Pietro Miraglia</span><span class="doc-spec">Diagnostica Vascolare</span></div>
-            <span class="doc-arrow">Prenota →</span>
+            <div><span class="doc-name">Dr. Pietro Miraglia</span><span class="doc-spec">Diagnostica Vascolare</span></div><span class="doc-arr">→</span>
           </a>
-          <a class="doc-btn" href="https://villa-del-sole-care-builder-tv72isc9nrxw5omhostingersite.com/visita-chirurgia-generale" target="_blank">
-            <div><span class="doc-name">Dr. Pietro Ajello</span><span class="doc-spec">Chirurgia Generale</span></div>
-            <span class="doc-arrow">Prenota →</span>
+          <a class="doc-btn" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-chirurgia-generale" target="_blank">
+            <div><span class="doc-name">Dr. Pietro Ajello</span><span class="doc-spec">Chirurgia Generale</span></div><span class="doc-arr">→</span>
           </a>
         </div>
-        <div class="panel-status">
-          <div class="sdot"></div>
-          <span class="stext">Sistema attivo · Conferma immediata</span>
-        </div>
+        <div class="panel-status"><div class="sdot"></div><span class="stext">Sistema attivo · Conferma immediata</span></div>
       </div>
     </div>
   </div>
@@ -497,28 +528,28 @@ footer{background:var(--dark);padding:32px 56px;
 
 <!-- INFO -->
 <section id="info" class="alt">
-  <div class="sec-label"><span>Accesso e logistica</span></div>
-  <div class="sec-title">Informazioni pratiche</div>
+  <div class="eyebrow">Informazioni pratiche</div>
+  <h2 class="sec-title">Come <em>raggiungerci</em></h2>
   <div class="info-grid">
-    <div class="info-cell">
-      <div class="info-dot-row"><div class="info-dot"></div><div class="info-lbl">Orari accettazione</div></div>
-      <div class="info-val">Lunedì – Venerdì<br>08:00 – 13:30 · 15:00 – 19:00<br><br>Sabato<br>09:30 – 13:00</div>
+    <div class="info-card">
+      <div class="info-num">01</div>
+      <div class="info-lbl">Orari di apertura</div>
+      <div class="info-val">Lun–Ven 08:00–13:30<br>15:00–19:00<br>Sabato 09:30–13:00</div>
     </div>
-    <div class="info-cell">
-      <div class="info-dot-row"><div class="info-dot"></div><div class="info-lbl">Sede</div></div>
-      <div class="info-val">Via E. Galli, 1-9<br>Rione San Vito<br>87100 Cosenza (CS)<br><br>Uscita A3 Cosenza Sud</div>
+    <div class="info-card">
+      <div class="info-num">02</div>
+      <div class="info-lbl">Sede</div>
+      <div class="info-val">Via E. Galli, 1-9<br>Rione San Vito<br>87100 Cosenza (CS)<br>Uscita A3 Cosenza Sud</div>
     </div>
-    <div class="info-cell">
-      <div class="info-dot-row"><div class="info-dot"></div><div class="info-lbl">Contatti</div></div>
-      <div class="info-val">
-        Tel. <a href="tel:+390984034026">0984 34026</a><br>
-        Fax 0984 31548<br><br>
-        <a href="mailto:villadelsole@casadicuravilladelsole.it">villadelsole@<br>casadicuravilladelsole.it</a>
-      </div>
+    <div class="info-card">
+      <div class="info-num">03</div>
+      <div class="info-lbl">Contatti</div>
+      <div class="info-val"><a href="tel:+390984034026">Tel. 0984 34026</a><br>Fax 0984 31548<br><a href="mailto:villadelsole@casadicuravilladelsole.it">villadelsole@casadicuravilladelsole.it</a></div>
     </div>
-    <div class="info-cell">
-      <div class="info-dot-row"><div class="info-dot"></div><div class="info-lbl">Pagamenti</div></div>
-      <div class="info-val">Contanti · Carta di credito<br>Convenzioni assicurative<br>Ricoveri SSN<br><br>P.IVA 00963660782</div>
+    <div class="info-card">
+      <div class="info-num">04</div>
+      <div class="info-lbl">Pagamenti</div>
+      <div class="info-val">Contanti · Carta<br>Convenzioni assicurative<br>Ricoveri SSN<br>P.IVA 00963660782</div>
     </div>
   </div>
 </section>
@@ -527,7 +558,7 @@ footer{background:var(--dark);padding:32px 56px;
 <footer>
   <div>
     <div class="foot-brand">Casa di Cura Villa del Sole S.r.l.</div>
-    <div class="foot-sub">Via E. Galli 1-9 · 87100 Cosenza · P.IVA 00963660782 · Tel. 0984 34026</div>
+    <div class="foot-sub">Via E. Galli 1-9 · Cosenza · P.IVA 00963660782 · Tel. 0984 34026</div>
   </div>
   <div class="foot-links">
     <a href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/privacy-policy" target="_blank">Privacy Policy</a>
@@ -535,7 +566,7 @@ footer{background:var(--dark);padding:32px 56px;
     <a href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/il-paziente#reclami" target="_blank">Reclami</a>
     <a href="mailto:villadelsole@casadicuravilladelsole.it">Contatti</a>
   </div>
-  <div class="accred">Accreditata SSN</div>
+  <div class="foot-badge">Accreditata SSN</div>
 </footer>
 
 </body>
