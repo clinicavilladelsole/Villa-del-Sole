@@ -18,13 +18,12 @@
 html{scroll-behavior:smooth}
 body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--dark)}
 
-/* GRID */
 .grid-bg{position:absolute;inset:0;pointer-events:none;
   background-image:linear-gradient(rgba(0,140,255,0.04) 1px,transparent 1px),
     linear-gradient(90deg,rgba(0,140,255,0.04) 1px,transparent 1px);
   background-size:36px 36px}
 
-/* ── NAV ── */
+/* NAV */
 .nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;
   justify-content:space-between;padding:0 52px;height:64px;
   background:rgba(255,255,255,0.97);border-bottom:1px solid var(--blue-b);
@@ -46,7 +45,6 @@ body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--dar
 .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
 .nav-hamburger span{width:22px;height:2px;background:var(--dark);border-radius:1px;display:block}
 
-/* MOBILE MENU */
 .mobile-menu{display:none;position:fixed;inset:0;top:64px;z-index:99;
   background:#fff;padding:28px 24px;flex-direction:column;gap:0;
   border-top:1px solid var(--blue-b);overflow-y:auto}
@@ -57,11 +55,10 @@ body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--dar
 .mobile-menu .m-cta{background:var(--blue);color:#fff;padding:14px;text-align:center;
   border-radius:2px;border:none;margin-top:16px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
 
-/* ── HERO — SPLIT 50/50 ── */
-.hero{display:grid;grid-template-columns:1fr 1fr;min-height:560px;position:relative}
+/* HERO SPLIT */
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:580px;position:relative}
 .hero-left{background:var(--white);position:relative;overflow:hidden;
   display:flex;align-items:center;padding:72px 56px}
-.hero-left .grid-bg{z-index:0}
 .hero-glow{position:absolute;width:500px;height:500px;border-radius:50%;
   background:radial-gradient(circle,rgba(0,140,255,0.07) 0%,transparent 70%);
   top:-100px;left:-80px;pointer-events:none}
@@ -81,14 +78,12 @@ h1.hero-h1{font-family:'Oxanium',sans-serif;font-size:52px;font-weight:800;
 .btn-primary:hover{opacity:.88}
 .btn-ghost{font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
 .btn-ghost:hover{color:var(--blue)}
-
-/* HERO RIGHT — foto */
 .hero-right{position:relative;overflow:hidden}
 .hero-right img{width:100%;height:100%;object-fit:cover;display:block}
 .hero-right-overlay{position:absolute;inset:0;
-  background:linear-gradient(to right,rgba(11,26,46,0.15) 0%,transparent 40%)}
+  background:linear-gradient(to right,rgba(11,26,46,0.2) 0%,transparent 40%)}
 .hero-badge{position:absolute;bottom:28px;left:28px;
-  background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);
+  background:rgba(255,255,255,0.94);backdrop-filter:blur(8px);
   border:1px solid var(--blue-b);border-radius:4px;padding:14px 18px}
 .hero-badge-n{font-family:'Oxanium',sans-serif;font-size:26px;font-weight:800;color:var(--blue)}
 .hero-badge-l{font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
@@ -101,7 +96,7 @@ h1.hero-h1{font-family:'Oxanium',sans-serif;font-size:52px;font-weight:800;
 .stat-n{font-family:'Oxanium',sans-serif;font-size:28px;font-weight:800;color:var(--blue)}
 .stat-l{font-size:10px;color:var(--faint);margin-top:3px;letter-spacing:.1em;text-transform:uppercase}
 
-/* ── SECTIONS ── */
+/* SECTIONS */
 section{padding:72px 56px}
 section.alt{background:var(--white)}
 .sec-label{display:flex;align-items:center;gap:12px;margin-bottom:10px}
@@ -109,7 +104,66 @@ section.alt{background:var(--white)}
 .sec-label::after{content:'';flex:1;height:1px;background:var(--blue-b)}
 .sec-title{font-family:'Oxanium',sans-serif;font-size:28px;font-weight:800;color:var(--dark);margin-bottom:40px}
 
-/* ── BOOKING PANEL ── */
+/* CLINICA BLOCKS */
+.clinica-block{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:72px}
+.clinica-block:last-child{margin-bottom:0}
+.clinica-block.rev{direction:rtl}
+.clinica-block.rev>*{direction:ltr}
+.clinica-img{width:100%;height:340px;object-fit:cover;border-radius:6px;
+  border:1px solid var(--blue-b);display:block}
+.clinica-text h3{font-family:'Oxanium',sans-serif;font-size:22px;font-weight:800;
+  color:var(--dark);margin-bottom:14px}
+.clinica-text p{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:12px;font-weight:300}
+.clinica-text strong{color:var(--dark);font-weight:500}
+.clinica-text ul{margin:14px 0 0;list-style:none;display:flex;flex-direction:column;gap:9px}
+.clinica-text li{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:9px;font-weight:300}
+.clinica-text li::before{content:'';width:4px;height:4px;background:var(--blue);border-radius:50%;flex-shrink:0}
+
+/* SPEC GRID */
+.spec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--blue-b);border:1px solid var(--blue-b);border-radius:6px;overflow:hidden}
+.spec-cell{background:var(--white);padding:22px 20px;display:flex;gap:12px;align-items:flex-start;transition:background .15s}
+.spec-cell:hover{background:var(--blue-l)}
+.spec-n{font-family:'Oxanium',sans-serif;font-size:22px;font-weight:800;color:rgba(0,140,255,0.13);flex-shrink:0;line-height:1}
+.spec-name{font-size:13px;font-weight:500;color:var(--dark);margin-bottom:4px}
+.spec-desc{font-size:11px;color:var(--faint);line-height:1.55}
+
+/* STRIP */
+.strip-wrap{padding:0 56px 72px}
+.strip{border-radius:4px;background:var(--dark);padding:36px 44px;
+  display:flex;justify-content:space-between;align-items:center;gap:24px;border-top:2px solid var(--blue)}
+.strip h3{font-family:'Oxanium',sans-serif;font-size:22px;font-weight:800;color:#fff;margin-bottom:5px}
+.strip p{font-size:13px;color:rgba(160,200,240,0.45)}
+.strip-btn{background:var(--blue);color:#fff;border:none;padding:13px 28px;border-radius:2px;
+  font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;
+  font-family:'Space Grotesk',sans-serif;white-space:nowrap;text-decoration:none;transition:opacity .2s}
+.strip-btn:hover{opacity:.88}
+
+/* ÉQUIPE */
+.equipe-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.eq-card{border:1px solid var(--blue-b);border-radius:3px;padding:20px;
+  background:var(--white);position:relative;overflow:hidden;transition:box-shadow .2s}
+.eq-card:hover{box-shadow:0 4px 20px rgba(0,140,255,0.1)}
+.eq-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;
+  background:linear-gradient(to bottom,var(--blue),rgba(0,140,255,0.1))}
+.eq-init{font-family:'Oxanium',sans-serif;font-size:12px;font-weight:800;color:var(--blue);
+  background:var(--blue-l);border:1px solid var(--blue-b);border-radius:2px;
+  padding:5px 9px;display:inline-block;margin-bottom:10px}
+.eq-name{font-size:13px;font-weight:500;color:var(--dark);margin-bottom:4px}
+.eq-spec{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);opacity:.6}
+.eq-link{display:inline-flex;align-items:center;gap:4px;margin-top:10px;
+  font-size:10px;color:var(--blue);text-decoration:none;letter-spacing:.06em;text-transform:uppercase}
+
+/* PRENOTA */
+.prenota-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.prenota-img-wrap{position:relative;border-radius:6px;overflow:hidden;height:100%;min-height:400px}
+.prenota-img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+.prenota-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(11,26,46,0.7) 0%,transparent 50%)}
+.prenota-img-text{position:absolute;bottom:24px;left:24px;right:24px}
+.prenota-img-text h3{font-family:'Oxanium',sans-serif;font-size:20px;font-weight:800;color:#fff;margin-bottom:6px}
+.prenota-img-text p{font-size:12px;color:rgba(255,255,255,0.65);line-height:1.6}
+
+/* PANEL */
 .panel{border:1px solid var(--blue-b);border-radius:4px;background:#f8fbff;position:relative;overflow:hidden}
 .panel::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
   background:linear-gradient(90deg,transparent,var(--blue),transparent)}
@@ -133,64 +187,7 @@ section.alt{background:var(--white)}
 .sdot{width:5px;height:5px;background:var(--green);border-radius:50%}
 .stext{font-size:10px;color:var(--faint);letter-spacing:.08em}
 
-/* ── PRENOTA SECTION — 2 col ── */
-.prenota-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-.prenota-intro h3{font-family:'Oxanium',sans-serif;font-size:22px;font-weight:800;color:var(--dark);margin-bottom:16px}
-.prenota-intro p{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:16px;font-weight:300}
-.prenota-intro ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:8px}
-.prenota-intro li{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--dark)}
-.prenota-intro li::before{content:'';width:4px;height:4px;background:var(--blue);border-radius:50%;flex-shrink:0}
-
-/* ── SPECIALITÀ ── */
-.spec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
-  background:var(--blue-b);border:1px solid var(--blue-b);border-radius:6px;overflow:hidden}
-.spec-cell{background:var(--white);padding:22px 20px;display:flex;gap:12px;align-items:flex-start;transition:background .15s}
-.spec-cell:hover{background:var(--blue-l)}
-.spec-n{font-family:'Oxanium',sans-serif;font-size:22px;font-weight:800;color:rgba(0,140,255,0.13);flex-shrink:0;line-height:1}
-.spec-name{font-size:13px;font-weight:500;color:var(--dark);margin-bottom:4px}
-.spec-desc{font-size:11px;color:var(--faint);line-height:1.55}
-
-/* ── STRIP ── */
-.strip-wrap{padding:0 56px 72px}
-.strip{border-radius:4px;background:var(--dark);padding:36px 44px;
-  display:flex;justify-content:space-between;align-items:center;gap:24px;border-top:2px solid var(--blue)}
-.strip h3{font-family:'Oxanium',sans-serif;font-size:22px;font-weight:800;color:#fff;margin-bottom:5px}
-.strip p{font-size:13px;color:rgba(160,200,240,0.45)}
-.strip-btn{background:var(--blue);color:#fff;border:none;padding:13px 28px;border-radius:2px;
-  font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;
-  font-family:'Space Grotesk',sans-serif;white-space:nowrap;text-decoration:none;transition:opacity .2s}
-.strip-btn:hover{opacity:.88}
-
-/* ── CLINICA — immagine integrata ── */
-.clinica-block{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-bottom:64px}
-.clinica-block:last-child{margin-bottom:0}
-.clinica-block.reverse{direction:rtl}
-.clinica-block.reverse > *{direction:ltr}
-.clinica-img{width:100%;height:320px;object-fit:cover;border-radius:6px;
-  border:1px solid var(--blue-b);display:block}
-.clinica-text h3{font-family:'Oxanium',sans-serif;font-size:20px;font-weight:800;color:var(--dark);margin-bottom:14px}
-.clinica-text p{font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:10px;font-weight:300}
-.clinica-text strong{color:var(--dark);font-weight:500}
-.clinica-text ul{margin:12px 0 0 0;list-style:none;display:flex;flex-direction:column;gap:8px}
-.clinica-text li{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px;font-weight:300}
-.clinica-text li::before{content:'';width:4px;height:4px;background:var(--blue);border-radius:50%;flex-shrink:0}
-
-/* ── ÉQUIPE ── */
-.equipe-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.eq-card{border:1px solid var(--blue-b);border-radius:3px;padding:20px;
-  background:var(--white);position:relative;overflow:hidden;transition:box-shadow .2s}
-.eq-card:hover{box-shadow:0 4px 20px rgba(0,140,255,0.1)}
-.eq-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;
-  background:linear-gradient(to bottom,var(--blue),rgba(0,140,255,0.1))}
-.eq-init{font-family:'Oxanium',sans-serif;font-size:12px;font-weight:800;color:var(--blue);
-  background:var(--blue-l);border:1px solid var(--blue-b);border-radius:2px;
-  padding:5px 9px;display:inline-block;margin-bottom:10px}
-.eq-name{font-size:13px;font-weight:500;color:var(--dark);margin-bottom:4px}
-.eq-spec{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);opacity:.6}
-.eq-link{display:inline-flex;align-items:center;gap:4px;margin-top:10px;
-  font-size:10px;color:var(--blue);text-decoration:none;letter-spacing:.06em;text-transform:uppercase}
-
-/* ── INFO ── */
+/* INFO */
 .info-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
   background:var(--blue-b);border:1px solid var(--blue-b);border-radius:6px;overflow:hidden}
 .info-cell{background:var(--white);padding:26px 22px}
@@ -200,7 +197,7 @@ section.alt{background:var(--white)}
 .info-val{font-size:13px;color:var(--dark);line-height:1.85;font-weight:300}
 .info-val a{color:var(--blue);text-decoration:none}
 
-/* ── FOOTER ── */
+/* FOOTER */
 footer{background:var(--dark);padding:32px 56px;
   display:grid;grid-template-columns:1fr auto auto;gap:32px;align-items:center}
 .foot-brand{font-family:'Oxanium',sans-serif;font-size:13px;font-weight:800;color:#fff;margin-bottom:4px}
@@ -211,17 +208,18 @@ footer{background:var(--dark);padding:32px 56px;
 .accred{border:1px solid rgba(0,214,143,0.28);border-radius:2px;padding:5px 12px;
   font-size:10px;color:rgba(0,214,143,0.6);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
 
-/* ── RESPONSIVE ── */
+/* RESPONSIVE */
 @media(max-width:1024px){
   .hero{grid-template-columns:1fr}
-  .hero-right{height:360px}
+  .hero-right{height:400px}
   .hero-badge{display:none}
   .equipe-grid{grid-template-columns:repeat(2,1fr)}
   .spec-grid{grid-template-columns:repeat(2,1fr)}
   .prenota-grid{grid-template-columns:1fr}
-  .clinica-block{grid-template-columns:1fr}
-  .clinica-block.reverse{direction:ltr}
-  .clinica-img{height:240px}
+  .prenota-img-wrap{min-height:260px}
+  .clinica-block{grid-template-columns:1fr;gap:32px}
+  .clinica-block.rev{direction:ltr}
+  .clinica-img{height:260px}
 }
 @media(max-width:768px){
   .nav{padding:0 20px}
@@ -301,7 +299,7 @@ footer{background:var(--dark);padding:32px 56px;
     </div>
   </div>
   <div class="hero-right">
-    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,h=900,fit=crop/J4tGMURsXwwCH1vY/accettazione-3-cNUrjHkhtGyPcgli.jpg" alt="Accettazione Casa di Cura Villa del Sole"/>
+    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,h=900,fit=crop/J4tGMURsXwwCH1vY/accettazione-3-cNUrjHkhtGyPcgli.jpg" alt="Corridoio Casa di Cura Villa del Sole"/>
     <div class="hero-right-overlay"></div>
     <div class="hero-badge">
       <div class="hero-badge-n">1972</div>
@@ -323,48 +321,68 @@ footer{background:var(--dark);padding:32px 56px;
   <div class="sec-label"><span>La casa di cura</span></div>
   <div class="sec-title">Chi siamo</div>
 
+  <!-- Block 1: Struttura -->
   <div class="clinica-block">
-    <img class="clinica-img" src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=900,h=600,fit=crop/J4tGMURsXwwCH1vY/segretaria-bMlLUecU2dzlvmsD.jpg" alt="Segreteria Villa del Sole"/>
+    <img class="clinica-img"
+      src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=900,h=600,fit=crop/J4tGMURsXwwCH1vY/segretaria-bMlLUecU2dzlvmsD.jpg"
+      alt="Segreteria Villa del Sole"/>
     <div class="clinica-text">
       <h3>La struttura</h3>
-      <p>La Casa di Cura Villa del Sole eroga, in regime di ricovero ordinario, i servizi e le prestazioni di diagnosi e cura delle malattie in Chirurgia e post-acute in Riabilitazione.</p>
-      <p>Specializzata per la branca di <strong>Chirurgia Generale</strong>, dispone di <strong>44 posti letto</strong> (40 ordinari + 4 Day Hospital) e <strong>30 posti letto di Riabilitazione</strong> Cardiorespiratoria.</p>
-      <p>La clinica dispone di <strong>32 camere di degenza</strong>, tutte con ampie finestre, servizi igienici indipendenti e apparecchi telefonici.</p>
+      <p>La Casa di Cura Villa del Sole eroga, in regime di ricovero ordinario, servizi e prestazioni di diagnosi e cura in Chirurgia e Riabilitazione Cardiorespiratoria.</p>
+      <p>Dispone di <strong>44 posti letto</strong> per la Chirurgia Generale e <strong>30 posti letto</strong> di Riabilitazione intensiva, con 32 camere di degenza dotate di servizi indipendenti.</p>
       <ul>
-        <li>Chirurgia Generale</li>
-        <li>Riabilitazione intensiva Cardiorespiratoria (cod. 56)</li>
-        <li>Visite mediche specialistiche</li>
-        <li>Assistenza infermieristica continua</li>
+        <li>Chirurgia Generale — day surgery e ricovero ordinario</li>
+        <li>Riabilitazione Cardiorespiratoria intensiva (cod. 56)</li>
+        <li>Visite mediche specialistiche ambulatoriali</li>
+        <li>Assistenza infermieristica continua H24</li>
       </ul>
     </div>
   </div>
 
-  <div class="clinica-block reverse">
-    <img class="clinica-img" src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=900,h=600,fit=crop/J4tGMURsXwwCH1vY/missione1-OYVru4OvYcQrJMuf.png" alt="Missione Villa del Sole"/>
+  <!-- Block 2: Cardiologia (immagine caricata) -->
+  <div class="clinica-block rev">
+    <img class="clinica-img" src="cuore_.png" alt="Cardiologia Villa del Sole"/>
+    <div class="clinica-text">
+      <h3>Cardiologia</h3>
+      <p>Il reparto di Cardiologia offre diagnosi e trattamento completo delle patologie cardiovascolari, con strumentazione di ultima generazione e un team specializzato guidato dal Dr. Antonio Scillone.</p>
+      <p>Eseguiamo ECG, ecocardiogrammi, holter cardiaci e test da sforzo, oltre al monitoraggio dei pazienti ricoverati nel reparto di Riabilitazione Cardiorespiratoria.</p>
+      <ul>
+        <li>Elettrocardiogramma e holter cardiaco</li>
+        <li>Ecocardiografia</li>
+        <li>Riabilitazione cardiorespiratoria</li>
+        <li>Monitoraggio pazienti post-operatori</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Block 3: Chirurgia (immagine caricata) -->
+  <div class="clinica-block">
+    <img class="clinica-img" src="chirurgia_generale11.jpg" alt="Chirurgia Villa del Sole"/>
+    <div class="clinica-text">
+      <h3>Chirurgia</h3>
+      <p>Il reparto di Chirurgia Generale dispone di sale operatorie attrezzate per interventi in day surgery e ricovero ordinario, con un team chirurgico di comprovata esperienza.</p>
+      <p>Operiamo in chirurgia generale, senologica, endocrina e proctologica, garantendo il massimo della sicurezza e percorsi di cura personalizzati per ogni paziente.</p>
+      <ul>
+        <li>Chirurgia generale e laparoscopica</li>
+        <li>Chirurgia senologica — Dr. Sergio Abonante</li>
+        <li>Chirurgia endocrina — Prof. Piero Berti</li>
+        <li>Piccola chirurgia proctologica</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Block 4: Missione (immagine caricata) -->
+  <div class="clinica-block rev">
+    <img class="clinica-img" src="Gemini_Generated_Image_sryo5osryo5osryo.png" alt="Missione Villa del Sole"/>
     <div class="clinica-text">
       <h3>La nostra missione</h3>
-      <p>Il fine istituzionale è quello di erogare i servizi e le prestazioni di diagnosi e cura garantendo il massimo della sicurezza nell'esercizio della medicina e le cure della più alta qualità.</p>
-      <p>Garantiamo un ambiente umano e accogliente, al fine di evitare qualsiasi motivo di spersonalizzazione dovuto al ricovero e al trattamento.</p>
+      <p>Il fine istituzionale della Casa di Cura Villa del Sole è erogare servizi di diagnosi e cura garantendo il massimo della sicurezza e le cure della più alta qualità.</p>
+      <p>Operiamo nel rispetto di ogni paziente, garantendo un ambiente umano e accogliente, lontano da qualsiasi forma di spersonalizzazione del percorso di cura.</p>
       <ul>
-        <li>Eguaglianza e imparzialità per tutti i pazienti</li>
+        <li>Eguaglianza e imparzialità per ogni paziente</li>
         <li>Continuità del servizio senza interruzioni</li>
-        <li>Tutela e partecipazione del cittadino-utente</li>
-        <li>Massima efficacia ed efficienza delle cure</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="clinica-block">
-    <img class="clinica-img" src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=900,h=600,fit=crop/J4tGMURsXwwCH1vY/prestazioni-1-GptoiXZ1WTsa2aSq.png" alt="Prestazioni Villa del Sole"/>
-    <div class="clinica-text">
-      <h3>Prestazioni e accesso</h3>
-      <p>Le visite ambulatoriali vengono prenotate dal personale in Accettazione o direttamente online tramite il sistema cal.com.</p>
-      <p>Dal <strong>lunedì al venerdì</strong> dalle 09:30 alle 13:00 e dalle 15:30 alle 18:00, il <strong>sabato</strong> dalle 09:30 alle 13:00.</p>
-      <p>Per il ricovero ordinario in elezione, il paziente si rivolge all'Ufficio Accettazione dalle ore 07:30 alle 09:00.</p>
-      <ul>
-        <li>Servizio di Radiologia – Dr. Claudio Locco</li>
-        <li>Laboratorio Analisi Cliniche – Dr.ssa Anna Perugini</li>
-        <li>Accettazione Tel. (+39) 0984 34026</li>
+        <li>Tutela attiva dei diritti del cittadino</li>
+        <li>Massima efficacia e qualità delle cure</li>
       </ul>
     </div>
   </div>
@@ -380,7 +398,7 @@ footer{background:var(--dark);padding:32px 56px;
     <div class="spec-cell"><span class="spec-n">03</span><div><div class="spec-name">Chirurgia Senologica</div><div class="spec-desc">Patologie della mammella e oncologia</div></div></div>
     <div class="spec-cell"><span class="spec-n">04</span><div><div class="spec-name">Chirurgia Endocrina</div><div class="spec-desc">Tiroide, paratiroidi e ghiandole surrenali</div></div></div>
     <div class="spec-cell"><span class="spec-n">05</span><div><div class="spec-name">Reumatologia</div><div class="spec-desc">Diagnosi e trattamento delle patologie reumatiche</div></div></div>
-    <div class="spec-cell"><span class="spec-n">06</span><div><div class="spec-name">Diagnostica Vascolare</div><div class="spec-desc">Ecocolordoppler e studio dei vasi</div></div></div>
+    <div class="spec-cell"><span class="spec-n">06</span><div><div class="spec-name">Diagnostica Vascolare</div><div class="spec-desc">Ecocolordoppler e studio dei vasi sanguigni</div></div></div>
     <div class="spec-cell"><span class="spec-n">07</span><div><div class="spec-name">Ecografia Internistica</div><div class="spec-desc">Diagnostica per immagini degli organi interni</div></div></div>
     <div class="spec-cell"><span class="spec-n">08</span><div><div class="spec-name">Piccola Chirurgia</div><div class="spec-desc">Chirurgia proctologica e ambulatoriale</div></div></div>
   </div>
@@ -418,16 +436,13 @@ footer{background:var(--dark);padding:32px 56px;
   <div class="sec-label"><span>Prenotazione online</span></div>
   <div class="sec-title">Scegli il tuo specialista</div>
   <div class="prenota-grid">
-    <div class="prenota-intro">
-      <h3>Prenota in pochi secondi</h3>
-      <p>Seleziona il medico specialista di cui hai bisogno e scegli data e orario direttamente dal calendario online. Riceverai una conferma immediata via email.</p>
-      <p>Il sistema di prenotazione è attivo <strong>24 ore su 24, 7 giorni su 7</strong>, tramite la piattaforma cal.com integrata con i calendari dei nostri medici.</p>
-      <ul>
-        <li>Conferma immediata della prenotazione</li>
-        <li>Promemoria automatico via email</li>
-        <li>Possibilità di modifica o cancellazione</li>
-        <li>Nessuna attesa telefonica</li>
-      </ul>
+    <div class="prenota-img-wrap">
+      <img src="Gemini_Generated_Image_vw8ukdvw8ukdvw8u.png" alt="Prenota la tua visita"/>
+      <div class="prenota-img-overlay"></div>
+      <div class="prenota-img-text">
+        <h3>Prenota in pochi secondi</h3>
+        <p>Calendario online in tempo reale · Conferma immediata · Nessuna attesa telefonica</p>
+      </div>
     </div>
     <div class="panel">
       <div class="panel-head">
@@ -466,7 +481,7 @@ footer{background:var(--dark);padding:32px 56px;
             <div><span class="doc-name">Dr. Pietro Miraglia</span><span class="doc-spec">Diagnostica Vascolare</span></div>
             <span class="doc-arrow">Prenota →</span>
           </a>
-          <a class="doc-btn" href="https://villa-del-sole-care-builder-tv72isc9nrxw5om5.hostingersite.com/visita-chirurgia-generale" target="_blank">
+          <a class="doc-btn" href="https://villa-del-sole-care-builder-tv72isc9nrxw5omhostingersite.com/visita-chirurgia-generale" target="_blank">
             <div><span class="doc-name">Dr. Pietro Ajello</span><span class="doc-spec">Chirurgia Generale</span></div>
             <span class="doc-arrow">Prenota →</span>
           </a>
